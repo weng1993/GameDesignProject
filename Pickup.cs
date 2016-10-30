@@ -29,11 +29,13 @@ public class Pickup : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ( "Pickup"))
 		{
-			ch = other.gameObject.transform;
-			ch.SetParent (pt);
-			Vector3 atop = new Vector3 (0.0f, height + 0.1f, 0f);
-			ch.localPosition = atop;
-			holding = true;
+			if (Input.GetButton ("Fire1")) {
+				ch = other.gameObject.transform;
+				ch.SetParent (pt);
+				Vector3 atop = new Vector3 (0.0f, height + 0.1f, 0f);
+				ch.localPosition = atop;
+				holding = true;
+			}
 		}
 	}
 }
