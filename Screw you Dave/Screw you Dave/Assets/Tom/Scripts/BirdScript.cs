@@ -12,6 +12,9 @@ public class BirdScript : MonoBehaviour {
 	public Collider coll;
 	public Rigidbody rb;
 	public float startingTime;
+        public float maxHeight;
+        //make layer for all terrain in scene
+        public int terrainLayer;
 	private float timeLeft;
 
 
@@ -73,11 +76,14 @@ public class BirdScript : MonoBehaviour {
 			rb.useGravity = true;
 		}
 		else {
-			//if flight time left use j to ascend and k to descend
-			if (Input.GetKey ("j")) {
-				transform.Translate (0, 0.1f, 0);
+                        //if within max height allow ascension
+			if (Physics.Raycast (transform.position, Vector3.down, maxHeight, 1 << terrainLayer)) {
+				//if flight time left use j to ascend and k to descend
+				if (Input.GetKey ("j")) {
+					transform.Translate (0, 0.1f, 0);
+				}
 			} 
-			else if (Input.GetKeyUp ("j")) {
+			if (Input.GetKeyUp ("j")) {
 				transform.Translate (0, 0, 0);
 			}
 
