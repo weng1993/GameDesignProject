@@ -12,9 +12,6 @@ public class BirdScript : MonoBehaviour {
 	public Collider coll;
 	public Rigidbody rb;
 	public float startingTime;
-        public float maxHeight;
-        //make layer for all terrain in scene
-        public int terrainLayer;
 	private float timeLeft;
 
 
@@ -23,6 +20,7 @@ public class BirdScript : MonoBehaviour {
 	private float height;
 	public bool holding = false;
 	private Vector3 offset; 
+	private Vector3 placeOffset;
 
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
@@ -76,14 +74,11 @@ public class BirdScript : MonoBehaviour {
 			rb.useGravity = true;
 		}
 		else {
-                        //if within max height allow ascension
-			if (Physics.Raycast (transform.position, Vector3.down, maxHeight, 1 << terrainLayer)) {
-				//if flight time left use j to ascend and k to descend
-				if (Input.GetKey ("j")) {
-					transform.Translate (0, 0.1f, 0);
-				}
+			//if flight time left use j to ascend and k to descend
+			if (Input.GetKey ("j")) {
+				transform.Translate (0, 0.1f, 0);
 			} 
-			if (Input.GetKeyUp ("j")) {
+			else if (Input.GetKeyUp ("j")) {
 				transform.Translate (0, 0, 0);
 			}
 
@@ -106,12 +101,7 @@ public class BirdScript : MonoBehaviour {
 		}
 
 	}
-
-	void FixedUpdate() {
-		rigidbody.MovePosition (rigidbody.position + velocity * Time.fixedDeltaTime);
-	}
-
-
+		
 	bool isGrounded() {
 		//change 3rd var depending on object size
 		return Physics.Raycast (transform.position, -Vector3.up, 0.6f);

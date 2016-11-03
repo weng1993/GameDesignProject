@@ -7,11 +7,16 @@ public class projectileExplosion : MonoBehaviour {
 	bool collision = false;
 	GameObject Player;
 	GameObject Controller;
-	 
+	Camera cam;
+	private Vector3 offset;
+	private Quaternion rotOffset;
+
 	// Use this for initialization
 	void Start () {
-		//Player = GameObject.FindGameObjectWithTag ("Schleemer");
 		Player = GameObject.FindGameObjectWithTag ("Player");
+		cam = Camera.main;
+		offset = cam.transform.position - Player.transform.position;
+		rotOffset = cam.transform.rotation;// - Player.transform.rotation;
 	}
 
 	// Update is called once per frame
@@ -20,14 +25,12 @@ public class projectileExplosion : MonoBehaviour {
 		if (lifespan <= 0 && !collision) {
 			Explode ();
 		}
-	
 	}
 
 	void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag == "Bird") {
 			collision = true; //So object isn't destroyed during function
-			//Switch Players
-
+			//Check what type of animal the player is
 			if(Player.gameObject.GetComponent<Player>() != null){
 				col.gameObject.AddComponent<BirdScript> ();
 				col.gameObject.GetComponent<BirdScript>().projectile_prefab = Player.gameObject.GetComponent<Player>().projectile_prefab;
@@ -37,18 +40,15 @@ public class projectileExplosion : MonoBehaviour {
 				col.gameObject.tag = "Player";
 				Player.gameObject.tag = "AIPlayer";
 
-				Camera cam = Camera.main;
-				cam.gameObject.GetComponent<CameraController>().player = col.gameObject;
-			}
-			//Make old guy AI
-			//Make Enemny controllable
-			//Change Camera
+				cam.GetComponent<CameraController> ().player = col.gameObject;
+				//cam.transform.position = col.transform.position + offset;
+				//cam.transform.SetParent (col.transform);
+				}
 			Explode ();
 		}
 		if (col.gameObject.tag == "AIPlayer") {
 			collision = true; //So object isn't destroyed during function
-			//Switch Players
-
+			//Check what type of animal the player is
 			if(Player.gameObject.GetComponent<BirdScript>() != null){
 				col.gameObject.AddComponent<Player> ();
 				col.gameObject.GetComponent<Player>().projectile_prefab = Player.gameObject.GetComponent<BirdScript>().projectile_prefab;
@@ -58,12 +58,10 @@ public class projectileExplosion : MonoBehaviour {
 				col.gameObject.tag = "Bird";
 				Player.gameObject.tag = "Player";
 
-				Camera cam = Camera.main;
-				cam.gameObject.GetComponent<CameraController>().player = col.gameObject;
+				cam.GetComponent<CameraController> ().player = col.gameObject;
+				//cam.transform.position = col.transform.position + offset;
+				//cam.transform.SetParent (col.transform);
 			}
-			//Make old guy AI
-			//Make Enemny controllable
-			//Change Camera
 			Explode ();
 		}
 	

@@ -28,16 +28,17 @@ public class Player : MonoBehaviour {
 		
 
 	void Update () {
-		velocity = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical")).normalized * 10;
+		//base movement
+		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 150.0f;
+		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 5.0f;
+		transform.Rotate (0, x, 0);
+		transform.Translate (0, 0, z);
+
 		//Switch Bodies
 		schleem = Input.GetKeyDown(KeyCode.X);
 		if (schleem) {
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position + fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
-	}
-
-	void FixedUpdate() {
-		rigidbody.MovePosition (rigidbody.position + velocity * Time.fixedDeltaTime);
 	}
 }
