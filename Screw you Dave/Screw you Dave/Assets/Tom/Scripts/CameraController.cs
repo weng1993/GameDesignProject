@@ -15,8 +15,9 @@ public class CameraController : MonoBehaviour {
 
 	void LateUpdate ()
 	{
+		//offset = transform.position - player.transform.position;
 		transform.position = player.transform.position + offset;
 		transform.Translate(-Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
-		transform.rotation = Quaternion.LookRotation(player.transform.position-transform.position);
+		//transform.rotation = Quaternion.LookRotation(player.transform.position-transform.position);
 	}
 }

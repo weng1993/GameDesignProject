@@ -22,6 +22,8 @@ public class BirdScript : MonoBehaviour {
 	private Vector3 offset; 
 	private Vector3 placeOffset;
 
+	public bool flight = false;
+
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
 		timeLeft = startingTime;
@@ -39,6 +41,7 @@ public class BirdScript : MonoBehaviour {
 		pt = GetComponent<Transform>();
 		height = pt.position.y;
 		offset = new Vector3 (0.0f, height + 0.1f, 0f);
+
 	}
 
 	void Update () {
@@ -50,7 +53,10 @@ public class BirdScript : MonoBehaviour {
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
 
-
+		//Makes sure bird stays on ground at switch
+		if(!flight){
+			rb.useGravity = true;
+		}
 
 		//update flight time
 		timeLeft -= Time.deltaTime;
@@ -63,19 +69,23 @@ public class BirdScript : MonoBehaviour {
 		transform.Translate (0, 0, z);
 
 		//regain flight time when touching ground
+		//might not need this
 		if (isGrounded ()) {
 			timeLeft = startingTime;
-			rb.useGravity = false;
 		}
 
 		//out of flight time
 		if (timeLeft <= 0) {
 			//re-enable gravity to make object fall
 			rb.useGravity = true;
+			flight = true;
 		}
 		else {
 			//if flight time left use j to ascend and k to descend
+			//remove gravity when in flight
 			if (Input.GetKey ("j")) {
+				rb.useGravity = false;
+				flight = true;
 				transform.Translate (0, 0.1f, 0);
 			} 
 			else if (Input.GetKeyUp ("j")) {
@@ -83,6 +93,8 @@ public class BirdScript : MonoBehaviour {
 			}
 
 			if (Input.GetKey ("k")) {
+				rb.useGravity = false;
+				flight = true;
 				transform.Translate (0, -0.1f, 0);
 			} 
 			else if (Input.GetKeyUp ("k")) {

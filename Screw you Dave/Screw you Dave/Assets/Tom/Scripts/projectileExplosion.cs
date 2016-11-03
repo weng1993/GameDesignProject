@@ -10,6 +10,7 @@ public class projectileExplosion : MonoBehaviour {
 	Camera cam;
 	private Vector3 offset;
 	private Quaternion rotOffset;
+	private Vector3 pos;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,7 @@ public class projectileExplosion : MonoBehaviour {
 		cam = Camera.main;
 		offset = cam.transform.position - Player.transform.position;
 		rotOffset = cam.transform.rotation;// - Player.transform.rotation;
+		pos = new Vector3 (-0.1900001f, 3.922f, -4.03f);
 	}
 
 	// Update is called once per frame
@@ -35,14 +37,16 @@ public class projectileExplosion : MonoBehaviour {
 				col.gameObject.AddComponent<BirdScript> ();
 				col.gameObject.GetComponent<BirdScript>().projectile_prefab = Player.gameObject.GetComponent<Player>().projectile_prefab;
 				col.gameObject.GetComponent<BirdScript>().startingTime = Player.gameObject.GetComponent<Player>().startingTime;
+				col.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<Player> ());
 
 				col.gameObject.tag = "Player";
 				Player.gameObject.tag = "AIPlayer";
 
-				cam.GetComponent<CameraController> ().player = col.gameObject;
-				//cam.transform.position = col.transform.position + offset;
-				//cam.transform.SetParent (col.transform);
+				cam.transform.SetParent (col.transform);
+				cam.transform.localRotation = Quaternion.Euler(50.634f, 0, 0);
+				cam.transform.localPosition = pos;
+
 				}
 			Explode ();
 		}
@@ -53,14 +57,15 @@ public class projectileExplosion : MonoBehaviour {
 				col.gameObject.AddComponent<Player> ();
 				col.gameObject.GetComponent<Player>().projectile_prefab = Player.gameObject.GetComponent<BirdScript>().projectile_prefab;
 				col.gameObject.GetComponent<Player>().startingTime = Player.gameObject.GetComponent<BirdScript>().startingTime;
+				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<BirdScript> ());
 
-				col.gameObject.tag = "Bird";
-				Player.gameObject.tag = "Player";
+				col.gameObject.tag = "Player";
+				Player.gameObject.tag = "Bird";
 
-				cam.GetComponent<CameraController> ().player = col.gameObject;
-				//cam.transform.position = col.transform.position + offset;
-				//cam.transform.SetParent (col.transform);
+				cam.transform.SetParent (col.transform);
+				cam.transform.localRotation = Quaternion.Euler(50.634f, 0, 0);
+				cam.transform.localPosition = pos;
 			}
 			Explode ();
 		}
