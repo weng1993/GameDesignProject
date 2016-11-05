@@ -45,13 +45,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Main Menu\Scripts by Tom\LoadSceneOnClick.cs" />
+     <Compile Include="Assets\Main Menu\Scripts by Tom\QuitOnClick.cs" />
+     <Compile Include="Assets\Main Menu\Scripts by Tom\SelectOnInput.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ActiveStateToggler.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ApplicationManager.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ChangeColor.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\DragMe.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\DragPanel.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\DropMe.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\PanelManager.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ResizePanel.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ScrollDetailTexture.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ShowSliderValue.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\TiltWindow.cs" />
      <Compile Include="Assets\Tom\Scripts\BirdScript.cs" />
      <Compile Include="Assets\Tom\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Tom\Scripts\ExitFence.cs" />
      <Compile Include="Assets\Tom\Scripts\Player.cs" />
      <Compile Include="Assets\Tom\Scripts\projectileExplosion.cs" />
+     <None Include="Assets\Main Menu\Fonts\Jupiter\LICENSE.txt" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+     <None Include="Assets\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Main Menu\Materials\UI-Default-No-Alpha.shader" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

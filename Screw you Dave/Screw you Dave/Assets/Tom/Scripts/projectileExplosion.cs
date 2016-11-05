@@ -3,7 +3,7 @@ using System.Collections;
 
 public class projectileExplosion : MonoBehaviour {
 
-	float lifespan = 2.0f;
+	float lifespan = 0.2f;
 	bool collision = false;
 	GameObject Player;
 	GameObject Controller;
@@ -18,7 +18,7 @@ public class projectileExplosion : MonoBehaviour {
 		cam = Camera.main;
 		offset = cam.transform.position - Player.transform.position;
 		rotOffset = cam.transform.rotation;// - Player.transform.rotation;
-		pos = new Vector3 (-0.1900001f, 3.922f, -4.03f);
+		pos = new Vector3 (-0.1900001f, 3.922f, -5.51f);
 	}
 
 	// Update is called once per frame
@@ -29,7 +29,7 @@ public class projectileExplosion : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision col){
+	void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Bird") {
 			collision = true; //So object isn't destroyed during function
 			//Check what type of animal the player is
@@ -44,7 +44,7 @@ public class projectileExplosion : MonoBehaviour {
 				Player.gameObject.tag = "AIPlayer";
 
 				cam.transform.SetParent (col.transform);
-				cam.transform.localRotation = Quaternion.Euler(50.634f, 0, 0);
+				cam.transform.localRotation = Quaternion.Euler(35.47f, 0, 0);
 				cam.transform.localPosition = pos;
 
 				}
@@ -64,7 +64,7 @@ public class projectileExplosion : MonoBehaviour {
 				Player.gameObject.tag = "Bird";
 
 				cam.transform.SetParent (col.transform);
-				cam.transform.localRotation = Quaternion.Euler(50.634f, 0, 0);
+				cam.transform.localRotation = Quaternion.Euler(35.47f, 0, 0);
 				cam.transform.localPosition = pos;
 			}
 			Explode ();

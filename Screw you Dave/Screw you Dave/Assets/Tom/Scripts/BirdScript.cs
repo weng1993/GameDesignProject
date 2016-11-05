@@ -4,10 +4,10 @@ using System.Collections;
 public class BirdScript : MonoBehaviour {
 	Rigidbody rigidbody;
 	Vector3 velocity;
-	float bulletImpulse = 5f;
+	float bulletImpulse = 20f;
 	public GameObject projectile_prefab;
 	bool schleem = false;
-	Vector3 fix = new Vector3 (0,1,.5f);
+	Vector3 fix = new Vector3 (0,0.5f,0);
 
 	public Collider coll;
 	public Rigidbody rb;
@@ -40,7 +40,7 @@ public class BirdScript : MonoBehaviour {
 		//Picking Up Script
 		pt = GetComponent<Transform>();
 		height = pt.position.y;
-		offset = new Vector3 (0.0f, height + 0.1f, 0f);
+		offset = new Vector3 (0.0f,0.1f, -1.0f);
 
 	}
 
@@ -49,7 +49,7 @@ public class BirdScript : MonoBehaviour {
 		//Switch Bodies
 		schleem = Input.GetKeyDown(KeyCode.X);
 		if (schleem) {
-			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position + fix,transform.rotation);
+			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
 
@@ -63,7 +63,7 @@ public class BirdScript : MonoBehaviour {
 
 		//base movement
 		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 150.0f;
-		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 5.0f;
+		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
 
 		transform.Rotate (0, x, 0);
 		transform.Translate (0, 0, z);
@@ -108,8 +108,9 @@ public class BirdScript : MonoBehaviour {
 			if (Input.GetButtonDown ("Submit")) {
 				ch.parent = null;
 				holding = false;
+			} else {
+				ch.localPosition = offset;
 			}
-			ch.position = pt.position + offset;
 		}
 
 	}
@@ -125,10 +126,12 @@ public class BirdScript : MonoBehaviour {
 		if (other.gameObject.CompareTag ( "Pickup"))
 		{
 			if (Input.GetButton ("Fire1")) {
-				ch = other.gameObject.transform;
-				ch.SetParent (pt);
-				ch.localPosition = offset;
-				holding = true;
+				if(!holding){
+					ch = other.gameObject.transform;
+					ch.SetParent (pt);
+					ch.localPosition = offset;
+					holding = true;
+				}
 			}
 		}
 	}
