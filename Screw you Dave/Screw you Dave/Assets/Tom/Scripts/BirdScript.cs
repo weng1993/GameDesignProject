@@ -14,6 +14,11 @@ public class BirdScript : MonoBehaviour {
 	public float startingTime;
 	private float timeLeft;
 
+	private int meleeDamage;
+	private float meleeRange;
+	private float attackTime;
+	private float cooldown;
+
 
 	private Transform pt;
 	private Transform ch;
@@ -41,6 +46,11 @@ public class BirdScript : MonoBehaviour {
 		pt = GetComponent<Transform>();
 		height = pt.position.y;
 		offset = new Vector3 (0.0f,0.1f, -1.0f);
+
+		meleeDamage = 10;
+		meleeRange = 2;
+		attackTime = 0;
+		cooldown = 1.0f;
 
 	}
 
@@ -113,6 +123,24 @@ public class BirdScript : MonoBehaviour {
 			}
 		}
 
+		if (attackTime > 0)
+			attackTime -= Time.deltaTime;
+		if (attackTime <= 0) {
+			if (Input.GetKey ("space")) {
+				attack ();
+				attackTime = cooldown;
+			}
+		}
+	}
+
+	void attack() {
+		print ("attack");
+		RaycastHit hit;
+		Vector3 fwd = transform.TransformDirection (Vector3.forward);
+		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "AIPlayer")) { // || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
+			print("hit");
+			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
+		}
 	}
 		
 	bool isGrounded() {
