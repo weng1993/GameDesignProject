@@ -6,6 +6,7 @@ public class BirdScript : MonoBehaviour {
 	Vector3 velocity;
 	float bulletImpulse = 20f;
 	public GameObject projectile_prefab;
+	public GameObject claw_prefab;
 	bool schleem = false;
 	Vector3 fix = new Vector3 (0,0.5f,0);
 
@@ -50,7 +51,7 @@ public class BirdScript : MonoBehaviour {
 		meleeDamage = 10;
 		meleeRange = 2;
 		attackTime = 0;
-		cooldown = 1.0f;
+		cooldown = .5f;
 
 	}
 
@@ -134,11 +135,9 @@ public class BirdScript : MonoBehaviour {
 	}
 
 	void attack() {
-		print ("attack");
 		RaycastHit hit;
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
-		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "AIPlayer")) { // || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
-			print("hit");
+		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
 		}
 	}
@@ -163,5 +162,4 @@ public class BirdScript : MonoBehaviour {
 			}
 		}
 	}
-
 }

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	public GameObject projectile_prefab;
 	bool schleem = false;
 	Vector3 fix = new Vector3 (0,0.5f,0);
+	public GameObject claw_prefab;
 
 	public Collider coll;
 	public Rigidbody rb;
@@ -39,6 +40,11 @@ public class Player : MonoBehaviour {
 		if (schleem) {
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position + fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
+		}
+
+		if (Input.GetKeyDown (KeyCode.Z)) {
+			GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix,transform.rotation);
+			claw.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
 	}
 }

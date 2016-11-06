@@ -59,11 +59,16 @@
      <Compile Include="Assets\Main Menu\Scripts\ScrollDetailTexture.cs" />
      <Compile Include="Assets\Main Menu\Scripts\ShowSliderValue.cs" />
      <Compile Include="Assets\Main Menu\Scripts\TiltWindow.cs" />
+     <Compile Include="Assets\Tom\Scripts\BearScript.cs" />
      <Compile Include="Assets\Tom\Scripts\BirdScript.cs" />
      <Compile Include="Assets\Tom\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Tom\Scripts\CameraFacingBillboard.cs" />
      <Compile Include="Assets\Tom\Scripts\ExitFence.cs" />
+     <Compile Include="Assets\Tom\Scripts\Health.cs" />
+     <Compile Include="Assets\Tom\Scripts\Health2.cs" />
      <Compile Include="Assets\Tom\Scripts\Player.cs" />
      <Compile Include="Assets\Tom\Scripts\projectileExplosion.cs" />
+     <Compile Include="Assets\Vincent\DestructionController.cs" />
      <None Include="Assets\Main Menu\Fonts\Jupiter\LICENSE.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Textures and Sprites\SF UI\Background\LICENSE.txt" />

@@ -33,15 +33,16 @@ public class projectileExplosion : MonoBehaviour {
 		if (col.gameObject.tag == "Bird") {
 			collision = true; //So object isn't destroyed during function
 			//Check what type of animal the player is
-			if(Player.gameObject.GetComponent<Player>() != null){
+			if(Player.gameObject.GetComponent<BearScript>() != null){
 				col.gameObject.AddComponent<BirdScript> ();
-				col.gameObject.GetComponent<BirdScript>().projectile_prefab = Player.gameObject.GetComponent<Player>().projectile_prefab;
-				col.gameObject.GetComponent<BirdScript>().startingTime = Player.gameObject.GetComponent<Player>().startingTime;
+				col.gameObject.GetComponent<BirdScript>().projectile_prefab = Player.gameObject.GetComponent<BearScript>().projectile_prefab;
+				col.gameObject.GetComponent<BirdScript>().claw_prefab = Player.gameObject.GetComponent<BearScript>().claw_prefab;
+				col.gameObject.GetComponent<BirdScript>().startingTime = Player.gameObject.GetComponent<BearScript>().startingTime;
 				col.gameObject.GetComponent<Rigidbody> ().useGravity = true;
-				Destroy (Player.gameObject.GetComponent<Player> ());
+				Destroy (Player.gameObject.GetComponent<BearScript> ());
 
 				col.gameObject.tag = "Player";
-				Player.gameObject.tag = "AIPlayer";
+				Player.gameObject.tag = "Bear";
 
 				cam.transform.SetParent (col.transform);
 				cam.transform.localRotation = Quaternion.Euler(35.47f, 0, 0);
@@ -50,13 +51,14 @@ public class projectileExplosion : MonoBehaviour {
 				}
 			Explode ();
 		}
-		if (col.gameObject.tag == "AIPlayer") {
+		if (col.gameObject.tag == "Bear") {
 			collision = true; //So object isn't destroyed during function
 			//Check what type of animal the player is
 			if(Player.gameObject.GetComponent<BirdScript>() != null){
-				col.gameObject.AddComponent<Player> ();
-				col.gameObject.GetComponent<Player>().projectile_prefab = Player.gameObject.GetComponent<BirdScript>().projectile_prefab;
-				col.gameObject.GetComponent<Player>().startingTime = Player.gameObject.GetComponent<BirdScript>().startingTime;
+				col.gameObject.AddComponent<BirdScript> ();
+				col.gameObject.GetComponent<BirdScript>().projectile_prefab = Player.gameObject.GetComponent<BirdScript>().projectile_prefab;
+				col.gameObject.GetComponent<BirdScript>().claw_prefab = Player.gameObject.GetComponent<BirdScript>().claw_prefab;
+				col.gameObject.GetComponent<BirdScript>().startingTime = Player.gameObject.GetComponent<BirdScript>().startingTime;
 				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<BirdScript> ());
 
