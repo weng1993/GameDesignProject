@@ -20,9 +20,6 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		adjustHealth (0);
-
-//		Vector3 Pos = Camera.main.WorldToScreenPoint (target.transform.position);
-//		transform.position = Pos;
 	}
 
 	void healthBarColor() {

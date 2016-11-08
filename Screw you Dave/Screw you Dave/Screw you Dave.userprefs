@@ -1,14 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Tom\Scripts\projectileExplosion.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Tom\Scripts\BearScript.cs">
     <Files>
-      <File FileName="Assets\Main Menu\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" Line="1" Column="1" />
-      <File FileName="Assets\Tom\Scripts\Health.cs" Line="1" Column="1" />
-      <File FileName="Assets\Tom\Scripts\Health2.cs" Line="1" Column="1" />
-      <File FileName="Assets\Tom\Scripts\BirdScript.cs" Line="143" Column="3" />
-      <File FileName="Assets\Vincent\DestructionController.cs" Line="9" Column="39" />
-      <File FileName="Assets\Tom\Scripts\projectileExplosion.cs" Line="63" Column="61" />
-      <File FileName="Assets\Tom\Scripts\BearScript.cs" Line="77" Column="3" />
+      <File FileName="Assets\Tom\Scripts\Health.cs" Line="43" Column="3" />
+      <File FileName="Assets\Tom\Scripts\Health2.cs" Line="33" Column="3" />
+      <File FileName="Assets\Tom\Scripts\BirdScript.cs" Line="147" Column="49" />
+      <File FileName="Assets\Tom\Scripts\BearScript.cs" Line="48" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

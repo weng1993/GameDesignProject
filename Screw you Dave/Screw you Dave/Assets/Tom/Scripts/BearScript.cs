@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BearScript : MonoBehaviour {
@@ -21,6 +22,13 @@ public class BearScript : MonoBehaviour {
 	private float attackTime;
 	private float cooldown;
 
+	private float specialCD;
+	private float CDTime;
+
+	public Slider healthSlider;
+	public Slider AtkSlider;
+	public Slider CDSlider;
+
 
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
@@ -35,6 +43,14 @@ public class BearScript : MonoBehaviour {
 		meleeDamage = 30;
 		attackTime = 0;
 		cooldown = .5f;
+
+		specialCD = 1;
+		CDTime = 0;
+
+		//UI
+		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
+		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
+		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
 	}
 
 
@@ -52,9 +68,14 @@ public class BearScript : MonoBehaviour {
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
 
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix,transform.rotation);
-			claw.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
+		if (CDTime > 0)
+			CDTime -= Time.deltaTime;
+		if (CDTime <= 0) {
+			if (Input.GetKeyDown (KeyCode.Z)) {
+				GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix, transform.rotation);
+				claw.GetComponent<Rigidbody> ().AddForce (transform.forward * bulletImpulse, ForceMode.Impulse);
+				CDTime = specialCD;
+			}
 		}
 
 
@@ -66,6 +87,11 @@ public class BearScript : MonoBehaviour {
 				attackTime = cooldown;
 			}
 		}
+
+		//UI
+		healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
+		AtkSlider.value = 1 - (attackTime / cooldown);
+		CDSlider.value = 1 - (CDTime / specialCD);
 	}
 
 	void attack() {

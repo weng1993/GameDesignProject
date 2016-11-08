@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BirdScript : MonoBehaviour {
@@ -20,6 +21,9 @@ public class BirdScript : MonoBehaviour {
 	private float attackTime;
 	private float cooldown;
 
+	public Slider healthSlider;
+	public Slider AtkSlider;
+	public Slider CDSlider;
 
 	private Transform pt;
 	private Transform ch;
@@ -48,11 +52,16 @@ public class BirdScript : MonoBehaviour {
 		height = pt.position.y;
 		offset = new Vector3 (0.0f,0.1f, -1.0f);
 
+		//combat
 		meleeDamage = 10;
 		meleeRange = 2;
 		attackTime = 0;
 		cooldown = .5f;
 
+		//UI
+		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
+		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
+		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
 	}
 
 	void Update () {
@@ -132,6 +141,11 @@ public class BirdScript : MonoBehaviour {
 				attackTime = cooldown;
 			}
 		}
+
+		//UI
+		healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
+		AtkSlider.value = 1 - (attackTime / cooldown);
+		CDSlider.value = (timeLeft / startingTime);
 	}
 
 	void attack() {
