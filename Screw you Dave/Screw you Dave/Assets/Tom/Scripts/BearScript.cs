@@ -62,7 +62,7 @@ public class BearScript : MonoBehaviour {
 		transform.Translate (0, 0, z);
 
 		//Switch Bodies
-		schleem = Input.GetKeyDown(KeyCode.X);
+		schleem = Input.GetKeyDown("space");
 		if (schleem) {
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position + fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
@@ -71,7 +71,7 @@ public class BearScript : MonoBehaviour {
 		if (CDTime > 0)
 			CDTime -= Time.deltaTime;
 		if (CDTime <= 0) {
-			if (Input.GetKeyDown (KeyCode.Z)) {
+			if (Input.GetMouseButton (1)) {
 				GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix, transform.rotation);
 				claw.GetComponent<Rigidbody> ().AddForce (transform.forward * bulletImpulse, ForceMode.Impulse);
 				CDTime = specialCD;
@@ -82,7 +82,7 @@ public class BearScript : MonoBehaviour {
 		if (attackTime > 0)
 			attackTime -= Time.deltaTime;
 		if (attackTime <= 0) {
-			if (Input.GetKey ("space")) {
+			if (Input.GetMouseButton (0)) {
 				attack ();
 				attackTime = cooldown;
 			}

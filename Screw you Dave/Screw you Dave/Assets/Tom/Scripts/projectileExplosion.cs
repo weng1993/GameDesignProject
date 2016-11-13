@@ -44,6 +44,9 @@ public class projectileExplosion : MonoBehaviour {
 				}
 				col.gameObject.GetComponent<Health2>().health =  Player.gameObject.GetComponent<Health2>().health;
 				Player.gameObject.GetComponent<Health2> ().health = 0;
+				float hswap =	col.gameObject.GetComponent<Health2> ().healthBar.fillAmount;
+				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount;
+				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = hswap;
 				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<BearScript> ());
 				col.gameObject.tag = "Player";
@@ -68,6 +71,9 @@ public class projectileExplosion : MonoBehaviour {
 				}
 				col.gameObject.GetComponent<Health2>().health =  Player.gameObject.GetComponent<Health2>().health;
 				Player.gameObject.GetComponent<Health2> ().health = 0;
+				float hswap =	col.gameObject.GetComponent<Health2> ().healthBar.fillAmount;
+				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount;
+				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = hswap;
 				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<BirdScript> ());
 

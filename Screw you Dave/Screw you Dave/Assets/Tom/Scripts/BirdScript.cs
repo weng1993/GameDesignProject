@@ -67,7 +67,7 @@ public class BirdScript : MonoBehaviour {
 	void Update () {
 		velocity = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical")).normalized * 10;
 		//Switch Bodies
-		schleem = Input.GetKeyDown(KeyCode.X);
+		schleem = Input.GetKeyDown("space");
 		if (schleem) {
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
@@ -103,23 +103,27 @@ public class BirdScript : MonoBehaviour {
 		else {
 			//if flight time left use j to ascend and k to descend
 			//remove gravity when in flight
-			if (Input.GetKey ("j")) {
+			if (Input.GetMouseButton (1)) {
 				rb.useGravity = false;
 				flight = true;
+				Vector3 v = rb.velocity;
+				v.y = 0;
+				rb.velocity = v;
 				transform.Translate (0, 0.1f, 0);
 			} 
-			else if (Input.GetKeyUp ("j")) {
-				transform.Translate (0, 0, 0);
+			else if (Input.GetMouseButtonUp (1)) {
+			//	transform.Translate (0, 0, 0);
+				rb.useGravity = true;
 			}
 
-			if (Input.GetKey ("k")) {
-				rb.useGravity = false;
-				flight = true;
-				transform.Translate (0, -0.1f, 0);
-			} 
-			else if (Input.GetKeyUp ("k")) {
-				transform.Translate (0, 0, 0);
-			}
+			//if (Input.GetKey ("k")) {
+			//	rb.useGravity = false;
+			//	flight = true;
+			//	transform.Translate (0, -0.1f, 0);
+			//} 
+			//else if (Input.GetKeyUp ("k")) {
+			//	transform.Translate (0, 0, 0);
+			//}
 		}
 
 
@@ -136,7 +140,7 @@ public class BirdScript : MonoBehaviour {
 		if (attackTime > 0)
 			attackTime -= Time.deltaTime;
 		if (attackTime <= 0) {
-			if (Input.GetKey ("space")) {
+			if (Input.GetMouseButton (0)) {
 				attack ();
 				attackTime = cooldown;
 			}
@@ -184,7 +188,7 @@ public class BirdScript : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ( "Pickup"))
 		{
-			if (Input.GetButton ("Fire1")) {
+			if (Input.GetMouseButton (2)) {
 				if(!holding){
 					ch = other.gameObject.transform;
 					ch.SetParent (pt);

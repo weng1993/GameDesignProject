@@ -6,7 +6,7 @@ public class Health2 : MonoBehaviour {
 
 	public int health;
 	public int maxHealth;
-	private Image healthBar;
+	public Image healthBar;
 
 
 	// Use this for initialization
