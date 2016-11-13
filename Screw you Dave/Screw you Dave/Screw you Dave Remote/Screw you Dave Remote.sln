@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{B4631AC3-6C22-EF08-032E-F63AD171FEB4}") = "Screw you Dave Remote", "Assembly-CSharp-firstpass.csproj", "{9F2263D5-6726-C3F0-F5AD-610BD4F8F28F}"
+EndProject
+Project("{B4631AC3-6C22-EF08-032E-F63AD171FEB4}") = "Screw you Dave Remote", "Assembly-CSharp.csproj", "{CAD5BF6A-5A01-9B62-168B-3DC8E9B68823}"
+EndProject
+Project("{B4631AC3-6C22-EF08-032E-F63AD171FEB4}") = "Screw you Dave Remote", "Assembly-CSharp-Editor.csproj", "{9D4156A0-A573-D207-F5B7-EB3EE68FE5DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F2263D5-6726-C3F0-F5AD-610BD4F8F28F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2263D5-6726-C3F0-F5AD-610BD4F8F28F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2263D5-6726-C3F0-F5AD-610BD4F8F28F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2263D5-6726-C3F0-F5AD-610BD4F8F28F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD5BF6A-5A01-9B62-168B-3DC8E9B68823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD5BF6A-5A01-9B62-168B-3DC8E9B68823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD5BF6A-5A01-9B62-168B-3DC8E9B68823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD5BF6A-5A01-9B62-168B-3DC8E9B68823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4156A0-A573-D207-F5B7-EB3EE68FE5DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4156A0-A573-D207-F5B7-EB3EE68FE5DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4156A0-A573-D207-F5B7-EB3EE68FE5DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4156A0-A573-D207-F5B7-EB3EE68FE5DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
