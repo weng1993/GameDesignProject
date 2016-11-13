@@ -28,7 +28,7 @@ public class BirdAi : MonoBehaviour {
 	public Transform[] enemyPath = new Transform[12];
 	public int pathNum = 0;
 	public bool alive = true;
-	Vector3 flight = new Vector3(0,.1f,0);
+	Vector3 flight = new Vector3(0,.5f,0);
 	int flightCount = 0;
 	float flightTime = 0;
 
@@ -104,9 +104,9 @@ public class BirdAi : MonoBehaviour {
 	}
 
 	void idle(){
-		Quaternion rotation = Quaternion.LookRotation (enemyPath[pathNum].position - transform.position +(flight*25));
+		Quaternion rotation = Quaternion.LookRotation (enemyPath[pathNum].position - transform.position +(flight));
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationSpeed);
-		Vector2 pathDirection = enemyPath [pathNum].position - transform.position +(flight*25);
+		Vector2 pathDirection = enemyPath [pathNum].position - transform.position +(flight);
 		float speedElement = Vector2.Dot (pathDirection.normalized,transform.forward);
 		transform.Translate (0,0,Time.deltaTime*attackSpeed);
 
