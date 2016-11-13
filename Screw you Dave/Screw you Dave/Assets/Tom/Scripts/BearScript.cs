@@ -99,6 +99,24 @@ public class BearScript : MonoBehaviour {
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
+			if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
+				if (hit.transform.tag.ToLower() == "bird") {
+					if(hit.transform.gameObject.GetComponent<BirdAi> () != null){
+						hit.transform.gameObject.GetComponent<BirdAi> ().alive = false;
+						if(hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null){
+							Destroy (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> ());
+						}
+					}
+				}
+				if (hit.transform.tag.ToLower() == "bear") {
+					if(hit.transform.gameObject.GetComponent<BearAi> () != null){
+						hit.transform.gameObject.GetComponent<BearAi> ().alive = false;
+						if (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> () != null) {
+							Destroy (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+						}
+					}
+				}
+			}
 		}
 	}
 }

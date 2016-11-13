@@ -30,7 +30,7 @@ public class projectileExplosion : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col){
-		if (col.gameObject.tag == "Bird") {
+		if (col.gameObject.tag == "Bird" && col.gameObject.GetComponent<Health2>().health ==0) {
 			collision = true; //So object isn't destroyed during function
 			//Check what type of animal the player is
 			if(Player.gameObject.GetComponent<BearScript>() != null){
@@ -39,11 +39,15 @@ public class projectileExplosion : MonoBehaviour {
 				col.gameObject.GetComponent<BirdScript>().claw_prefab = Player.gameObject.GetComponent<BearScript>().claw_prefab;
 				col.gameObject.GetComponent<BirdScript>().startingTime = Player.gameObject.GetComponent<BearScript>().startingTime;
 				col.gameObject.GetComponent<Rigidbody> ().useGravity = true;
+				if (col.gameObject.GetComponent<BirdAi> () != null) {
+					Destroy (col.gameObject.GetComponent<BirdAi> ());
+				}
+				col.gameObject.GetComponent<Health2>().health =  Player.gameObject.GetComponent<Health2>().health;
+				Player.gameObject.GetComponent<Health2> ().health = 0;
+				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<BearScript> ());
-
 				col.gameObject.tag = "Player";
 				Player.gameObject.tag = "Bear";
-
 				cam.transform.SetParent (col.transform);
 				cam.transform.localRotation = Quaternion.Euler(35.47f, 0, 0);
 				cam.transform.localPosition = pos;
@@ -51,14 +55,19 @@ public class projectileExplosion : MonoBehaviour {
 				}
 			Explode ();
 		}
-		if (col.gameObject.tag == "Bear") {
+		if (col.gameObject.tag == "Bear"&& col.gameObject.GetComponent<Health2>().health ==0) {
 			collision = true; //So object isn't destroyed during function
 			//Check what type of animal the player is
 			if(Player.gameObject.GetComponent<BirdScript>() != null){
-				col.gameObject.AddComponent<BirdScript> ();
-				col.gameObject.GetComponent<BirdScript>().projectile_prefab = Player.gameObject.GetComponent<BirdScript>().projectile_prefab;
-				col.gameObject.GetComponent<BirdScript>().claw_prefab = Player.gameObject.GetComponent<BirdScript>().claw_prefab;
-				col.gameObject.GetComponent<BirdScript>().startingTime = Player.gameObject.GetComponent<BirdScript>().startingTime;
+				col.gameObject.AddComponent<BearScript> ();
+				col.gameObject.GetComponent<BearScript>().projectile_prefab = Player.gameObject.GetComponent<BirdScript>().projectile_prefab;
+				col.gameObject.GetComponent<BearScript>().claw_prefab = Player.gameObject.GetComponent<BirdScript>().claw_prefab;
+				col.gameObject.GetComponent<BearScript>().startingTime = Player.gameObject.GetComponent<BirdScript>().startingTime;
+				if (col.gameObject.GetComponent<BearAi> () != null) {
+					Destroy (col.gameObject.GetComponent<BearAi> ());
+				}
+				col.gameObject.GetComponent<Health2>().health =  Player.gameObject.GetComponent<Health2>().health;
+				Player.gameObject.GetComponent<Health2> ().health = 0;
 				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<BirdScript> ());
 
