@@ -24,6 +24,7 @@ public class TurtleScript : MonoBehaviour {
 
 	public bool underwater = false;
 	private float underwaterYOffset;
+	private float toAboveY;
 	private float abovewaterY;
 	public float startingTime;
 	private float timeLeft;
@@ -35,6 +36,7 @@ public class TurtleScript : MonoBehaviour {
 
 		underwaterYOffset = 0f - (transform.localScale.y + 0.5f);
 		abovewaterY = 150.5f;
+		toAboveY = transform.position.y - 1f;
 
 		// freeze rotation so turtle will swim straight
 		rb.freezeRotation = true;
@@ -147,7 +149,7 @@ public class TurtleScript : MonoBehaviour {
 				rb.useGravity = false;
 				transform.Translate (0, underwaterYOffset, 0);
 			} else {
-				if (transform.position.y < 149.5f) {
+				if (transform.position.y < toAboveY) {
 					if (transform.position.x < other.gameObject.transform.position.x) {
 						transform.Translate (-5f, (abovewaterY - transform.position.y), 0);
 					} else {
