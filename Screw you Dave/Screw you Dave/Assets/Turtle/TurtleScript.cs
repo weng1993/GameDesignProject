@@ -18,12 +18,13 @@ public class TurtleScript : MonoBehaviour {
 	private float attackTime;
 	private float cooldown;
 
-	public Slider healthSlider;
+	/*public Slider healthSlider;
 	public Slider AtkSlider;
-	public Slider CDSlider;	
+	public Slider CDSlider;	*/
 
 	public bool underwater = false;
-	private float underwaterY;
+	private float underwaterYOffset;
+	private float abovewaterY;
 	public float startingTime;
 	private float timeLeft;
 
@@ -32,7 +33,8 @@ public class TurtleScript : MonoBehaviour {
 		coll = GetComponent<BoxCollider>();
 		timeLeft = startingTime;
 
-		underwaterY = 149.9f - (transform.localScale.y + 0.5f);
+		underwaterYOffset = 0f - (transform.localScale.y + 0.5f);
+		abovewaterY = 150.5f;
 
 		// freeze rotation so turtle will swim straight
 		rb.freezeRotation = true;
@@ -44,9 +46,9 @@ public class TurtleScript : MonoBehaviour {
 		cooldown = .5f;
 
 		//UI
-		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
+		/*healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
-		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
+		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();*/
 	}
 	
 	// Update is called once per frame
@@ -81,9 +83,9 @@ public class TurtleScript : MonoBehaviour {
 			rb.useGravity = true;
 			// and pop turtle out of water (still need to write this code)
 		}else { */
-			//if swim time left use j to ascend and k to descend
-			//remove gravity when in water
-			if (Input.GetMouseButton (1)) {
+			// if swim time left use j to ascend and k to descend
+			// remove gravity when in water
+		if (Input.GetMouseButton (1)) {
 				rb.useGravity = false;
 				underwater = true;
 				Vector3 v = rb.velocity;
@@ -91,8 +93,7 @@ public class TurtleScript : MonoBehaviour {
 				rb.velocity = v;
 				transform.Translate (0, 0.1f, 0);
 			} 
-			else if (Input.GetMouseButtonUp (1)) {
-			//	transform.Translate (0, 0, 0);
+		else if (Input.GetMouseButtonUp (1)) {
 				rb.useGravity = true;
 			}
 		//}
@@ -107,9 +108,9 @@ public class TurtleScript : MonoBehaviour {
 		}
 
 		//UI
-		healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
+		/*healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
 		AtkSlider.value = 1 - (attackTime / cooldown);
-		CDSlider.value = (timeLeft / startingTime);
+		CDSlider.value = (timeLeft / startingTime);*/
 	}
 
 	void attack() {
@@ -138,13 +139,24 @@ public class TurtleScript : MonoBehaviour {
 		}
 	} 
 
-	void OnTriggerEnter(Collider other) 
+	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag ( "Water"))
-		{
-			underwater = true;
-			rb.useGravity = false;
-			transform.position = new Vector3 (transform.position.x, underwaterY, transform.position.z);
+		if (other.gameObject.CompareTag ("Water")) {
+			if (underwater = false) {
+				underwater = true;
+				rb.useGravity = false;
+				transform.Translate (0, underwaterYOffset, 0);
+			} else {
+				if (transform.position.y < 149.5f) {
+					if (transform.position.x < other.gameObject.transform.position.x) {
+						transform.Translate (-5f, (abovewaterY - transform.position.y), 0);
+					} else {
+						transform.Translate (5f, (abovewaterY - transform.position.y), 0);
+					}
+					underwater = false;
+					rb.useGravity = true;
+				}
+			}
 		}
 	}
 }
