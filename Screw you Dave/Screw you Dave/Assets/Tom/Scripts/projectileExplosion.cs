@@ -52,7 +52,7 @@ public class projectileExplosion : MonoBehaviour {
 				col.gameObject.tag = "Player";
 				Player.gameObject.tag = "Bear";
 				cam.transform.SetParent (col.transform);
-				cam.transform.localRotation = Quaternion.Euler(35.47f, 0, 0);
+				cam.transform.localRotation = Quaternion.Euler(19.35f, 0, 0);
 				cam.transform.localPosition = pos;
 
 				}
@@ -81,7 +81,7 @@ public class projectileExplosion : MonoBehaviour {
 				Player.gameObject.tag = "Bird";
 
 				cam.transform.SetParent (col.transform);
-				cam.transform.localRotation = Quaternion.Euler(35.47f, 0, 0);
+				cam.transform.localRotation = Quaternion.Euler(19.35f, 0, 0);
 				cam.transform.localPosition = pos;
 			}
 			Explode ();

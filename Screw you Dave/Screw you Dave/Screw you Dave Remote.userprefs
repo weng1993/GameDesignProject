@@ -1,0 +1,19 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Tom\Scripts\BirdScript.cs">
+    <Files>
+      <File FileName="Assets\Tom\Scripts\BirdScript.cs" Line="198" Column="32" />
+      <File FileName="Assets\Tom\Scripts\BearScript.cs" Line="92" Column="132" />
+      <File FileName="Assets\Tom\Scripts\Health2.cs" Line="9" Column="8" />
+      <File FileName="Assets\Tom\Scripts\projectileExplosion.cs" Line="86" Column="5" />
+      <File FileName="Assets\Tom\Scripts\End.cs" Line="18" Column="38" />
+      <File FileName="Assets\Tom\Scripts\ExitFence.cs" Line="24" Column="38" />
+      <File FileName="Assets\Tom\Scripts\BirdAi.cs" Line="136" Column="30" />
+      <File FileName="Assets\Tom\Scripts\EnemyHome.cs" Line="15" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

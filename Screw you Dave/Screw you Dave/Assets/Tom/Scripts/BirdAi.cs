@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BirdAi : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class BirdAi : MonoBehaviour {
 	public bool playerSeen = false;
 
 	public Transform player;
-	private float speed = 3f;
+	private float speed = 6f;
 	private float attackSpeed = 6f;
 	private float rotationSpeed = 6f;
 
@@ -57,7 +58,7 @@ public class BirdAi : MonoBehaviour {
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
 
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
+		//player = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
 
 	void Update () {
@@ -88,6 +89,7 @@ public class BirdAi : MonoBehaviour {
 	}
 
 	void attackPlayer(){
+		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		Quaternion rotation = Quaternion.LookRotation (player.position - transform.position);
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 		if(Vector3.Distance(transform.position,player.position) > meleeRange+.2) {
@@ -131,7 +133,7 @@ public class BirdAi : MonoBehaviour {
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
 			if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
-				//Game over
+				SceneManager.LoadScene (2);
 			}
 		}
 	}

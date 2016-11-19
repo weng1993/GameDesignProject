@@ -5,26 +5,13 @@ public class Player : MonoBehaviour {
 
 	Rigidbody rigidbody;
 	Vector3 velocity;
-	float bulletImpulse = 20f;
 	public GameObject projectile_prefab;
+	float bulletImpulse = 20f;
 	bool schleem = false;
 	Vector3 fix = new Vector3 (0,0.5f,0);
-	public GameObject claw_prefab;
-
-	public Collider coll;
-	public Rigidbody rb;
-	public float startingTime;
-	private float timeLeft;
-
 
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
-		timeLeft = startingTime;
-		//bounciness 0 (likely included in player already)
-		coll = GetComponent<BoxCollider>();
-		PhysicMaterial material = new PhysicMaterial();
-		material.bounciness = 0;
-		coll.material = material;
 	}
 		
 
@@ -36,15 +23,10 @@ public class Player : MonoBehaviour {
 		transform.Translate (0, 0, z);
 
 		//Switch Bodies
-		schleem = Input.GetKeyDown(KeyCode.X);
+		schleem = Input.GetKeyDown("space");
 		if (schleem) {
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position + fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
-		}
-
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix,transform.rotation);
-			claw.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
 	}
 }

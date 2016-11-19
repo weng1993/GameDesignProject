@@ -11,9 +11,10 @@ public class Health2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		maxHealth = 100;
-		health = maxHealth;
+	//	maxHealth = 100;
+	//	health = maxHealth;
 		healthBar = transform.FindChild ("HealthCanvas").FindChild ("HealthBG").FindChild ("Health").GetComponent<Image> ();
+		healthBar.fillAmount = ((float)health / (float)maxHealth);
 	}
 	
 	// Update is called once per frame

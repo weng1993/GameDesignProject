@@ -65,6 +65,7 @@
      <Compile Include="Assets\Tom\Scripts\BirdScript.cs" />
      <Compile Include="Assets\Tom\Scripts\CameraController.cs" />
      <Compile Include="Assets\Tom\Scripts\CameraFacingBillboard.cs" />
+     <Compile Include="Assets\Tom\Scripts\End.cs" />
      <Compile Include="Assets\Tom\Scripts\EnemyHome.cs" />
      <Compile Include="Assets\Tom\Scripts\ExitFence.cs" />
      <Compile Include="Assets\Tom\Scripts\Health.cs" />

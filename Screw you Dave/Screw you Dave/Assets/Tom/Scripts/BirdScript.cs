@@ -32,10 +32,13 @@ public class BirdScript : MonoBehaviour {
 	private Vector3 offset; 
 	private Vector3 placeOffset;
 
+	int layermask = 1 << 8;
+
 	public bool flight = false;
 
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
+		startingTime = 3;
 		timeLeft = startingTime;
 		//bounciness 0 (likely included in player already)
 		coll = GetComponent<BoxCollider>();
@@ -129,7 +132,7 @@ public class BirdScript : MonoBehaviour {
 
 		if (holding == true) {
 			ch = pt.GetChild (pt.childCount - 1);
-			if (Input.GetButtonDown ("Submit")) {
+			if (Input.GetKeyDown ("e")) {
 				ch.parent = null;
 				holding = false;
 			} else {
@@ -180,7 +183,7 @@ public class BirdScript : MonoBehaviour {
 		
 	bool isGrounded() {
 		//change 3rd var depending on object size
-		return Physics.Raycast (transform.position, -Vector3.up, 0.6f);
+		return Physics.Raycast (transform.position, -Vector3.up, 0.6f, layermask);
 	}
 
 	//Bird Stuff
@@ -188,7 +191,7 @@ public class BirdScript : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ( "Pickup"))
 		{
-			if (Input.GetMouseButton (2)) {
+			if (Input.GetKey ("e")) {
 				if(!holding){
 					ch = other.gameObject.transform;
 					ch.SetParent (pt);

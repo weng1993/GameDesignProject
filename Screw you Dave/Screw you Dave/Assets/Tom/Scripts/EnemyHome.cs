@@ -12,7 +12,7 @@ public class EnemyHome : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
+		//player = GameObject.FindGameObjectWithTag ("Player");
 		playerInTerritory = false;
 		EnemyTag = enemy.gameObject.tag.ToLower();
 	}
@@ -65,7 +65,7 @@ public class EnemyHome : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.gameObject == player)
+		if (other.gameObject.tag == "Player")
 		{
 			playerInTerritory = true;
 		}
@@ -73,7 +73,7 @@ public class EnemyHome : MonoBehaviour {
 
 	void OnTriggerExit (Collider other)
 	{
-		if (other.gameObject == player) 
+		if (other.gameObject.tag == "Player") 
 		{
 			playerInTerritory = false;
 		}

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Tom/Scene/AITest.unity
+- path: Assets/Tom/Scene/Tutorial1.unity
   isLoaded: 1
   isActive: 1
