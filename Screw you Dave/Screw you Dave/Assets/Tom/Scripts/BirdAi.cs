@@ -10,7 +10,7 @@ public class BirdAi : MonoBehaviour {
 	public float startingTime;
 	private float timeLeft;
 
-	private int meleeDamage;
+	public int meleeDamage = 10;
 	private float meleeRange;
 	private float attackTime;
 	private float cooldown;
@@ -36,6 +36,10 @@ public class BirdAi : MonoBehaviour {
 	public GameObject home;
 
 	void Start () {
+
+		for (int i = 0; i < 12; i++)
+			enemyPath [i] = home.transform.GetChild (i);
+
 		timeLeft = startingTime;
 		//bounciness 0 (likely included in player already)
 		coll = GetComponent<BoxCollider>();
@@ -48,7 +52,6 @@ public class BirdAi : MonoBehaviour {
 		rb.freezeRotation = true;
 
 		//combat
-		meleeDamage = 10;
 		meleeRange = 2;
 		attackTime = 0;
 		cooldown = .5f;
@@ -132,8 +135,9 @@ public class BirdAi : MonoBehaviour {
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
-			if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
-				SceneManager.LoadScene (2);
+			if ((hit.transform.gameObject.GetComponent<Health2>().health <= 0) && (hit.transform.gameObject.tag == "Player")){
+				//SceneManager.LoadScene (2);
+				SceneManager.LoadScene (0);
 			}
 		}
 	}

@@ -42,11 +42,10 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<BirdAi> () != null) {
 					Destroy (col.gameObject.GetComponent<BirdAi> ());
 				}
-				col.gameObject.GetComponent<Health2>().health =  Player.gameObject.GetComponent<Health2>().health;
+				col.gameObject.GetComponent<Health2>().health =  System.Math.Min(Player.gameObject.GetComponent<Health2>().health, col.gameObject.GetComponent<Health2>().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
-				float hswap =	col.gameObject.GetComponent<Health2> ().healthBar.fillAmount;
-				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount;
-				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = hswap;
+				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
 				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<BearScript> ());
 				col.gameObject.tag = "Player";
@@ -69,11 +68,10 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<BearAi> () != null) {
 					Destroy (col.gameObject.GetComponent<BearAi> ());
 				}
-				col.gameObject.GetComponent<Health2>().health =  Player.gameObject.GetComponent<Health2>().health;
+				col.gameObject.GetComponent<Health2>().health =  System.Math.Min(Player.gameObject.GetComponent<Health2>().health, col.gameObject.GetComponent<Health2>().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
-				float hswap =	col.gameObject.GetComponent<Health2> ().healthBar.fillAmount;
-				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount;
-				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = hswap;
+				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
 				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
 				Destroy (Player.gameObject.GetComponent<BirdScript> ());
 
@@ -86,7 +84,33 @@ public class projectileExplosion : MonoBehaviour {
 			}
 			Explode ();
 		}
-	
+		if (col.gameObject.tag == "Turtle"&& col.gameObject.GetComponent<Health2>().health ==0) {
+			collision = true; //So object isn't destroyed during function
+			//Check what type of animal the player is
+			if(Player.gameObject.GetComponent<BirdScript>() != null){
+				col.gameObject.AddComponent<TurtleScript> ();
+				col.gameObject.GetComponent<TurtleScript>().projectile_prefab = Player.gameObject.GetComponent<BirdScript>().projectile_prefab;
+				col.gameObject.GetComponent<TurtleScript>().claw_prefab = Player.gameObject.GetComponent<BirdScript>().claw_prefab;
+				col.gameObject.GetComponent<TurtleScript>().startingTime = Player.gameObject.GetComponent<BirdScript>().startingTime;
+				if (col.gameObject.GetComponent<TurtleAi> () != null) {
+					Destroy (col.gameObject.GetComponent<TurtleAi> ());
+				}
+				col.gameObject.GetComponent<Health2>().health =  System.Math.Min(Player.gameObject.GetComponent<Health2>().health, col.gameObject.GetComponent<Health2>().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().health = 0;
+				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
+				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
+				Destroy (Player.gameObject.GetComponent<BirdScript> ());
+
+				col.gameObject.tag = "Player";
+				Player.gameObject.tag = "Bird";
+
+				cam.transform.SetParent (col.transform);
+				cam.transform.localRotation = Quaternion.Euler(19.35f, 0, 0);
+				cam.transform.localPosition = pos;
+			}
+			Explode ();
+		}	
 	}
 
 	void Explode(){

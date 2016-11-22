@@ -16,6 +16,7 @@ public class DestructionController : MonoBehaviour {
 	}
 	void Explode(){
 		Instantiate (remains, transform.position, transform.rotation);
-		Destroy(gameObject);
+		Destroy (gameObject);
+		//remains.transform.Find("GameObject").GetComponent<SphereCollider>().enabled = false;
 	}
 }

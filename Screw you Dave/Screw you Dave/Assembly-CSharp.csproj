@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CAD5BF6A-5A01-9B62-168B-3DC8E9B68823}</ProjectGuid>
+    <ProjectGuid>{5CA014F6-65AD-B0E5-F264-5074AED4D645}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -71,7 +71,11 @@
      <Compile Include="Assets\Tom\Scripts\Health.cs" />
      <Compile Include="Assets\Tom\Scripts\Health2.cs" />
      <Compile Include="Assets\Tom\Scripts\Player.cs" />
+     <Compile Include="Assets\Tom\Scripts\TurtleAi.cs" />
      <Compile Include="Assets\Tom\Scripts\projectileExplosion.cs" />
+     <Compile Include="Assets\Turtle\Animalnteraction.cs" />
+     <Compile Include="Assets\Turtle\TurtleScript.cs" />
+     <Compile Include="Assets\Turtle\WaterInteraction.cs" />
      <Compile Include="Assets\Vincent\DestructionController.cs" />
      <None Include="Assets\Main Menu\Fonts\Jupiter\LICENSE.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
@@ -93,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{9F2263D5-6726-C3F0-F5AD-610BD4F8F28F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{38AE21A4-3F90-D3F2-6C19-F2FB6F891454}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

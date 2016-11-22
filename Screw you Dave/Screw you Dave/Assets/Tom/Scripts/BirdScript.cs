@@ -38,7 +38,7 @@ public class BirdScript : MonoBehaviour {
 
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
-		startingTime = 3;
+		startingTime = 5;
 		timeLeft = startingTime;
 		//bounciness 0 (likely included in player already)
 		coll = GetComponent<BoxCollider>();
