@@ -70,6 +70,8 @@
      <Compile Include="Assets\Tom\Scripts\ExitFence.cs" />
      <Compile Include="Assets\Tom\Scripts\Health.cs" />
      <Compile Include="Assets\Tom\Scripts\Health2.cs" />
+     <Compile Include="Assets\Tom\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Tom\Scripts\Orbit.cs" />
      <Compile Include="Assets\Tom\Scripts\Player.cs" />
      <Compile Include="Assets\Tom\Scripts\TurtleAi.cs" />
      <Compile Include="Assets\Tom\Scripts\projectileExplosion.cs" />

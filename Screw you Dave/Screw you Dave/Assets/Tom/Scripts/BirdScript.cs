@@ -65,31 +65,18 @@ public class BirdScript : MonoBehaviour {
 		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
+
 	}
 
-	void Update () {
-		velocity = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical")).normalized * 10;
-		//Switch Bodies
-		schleem = Input.GetKeyDown("space");
-		if (schleem) {
-			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
-			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
-		}
+	void FixedUpdate(){
+		//base movement
+		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 10.0f;
+		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
 
-		//Makes sure bird stays on ground at switch
-		if(!flight){
-			rb.useGravity = true;
-		}
+		transform.Translate (x, 0, z);
 
 		//update flight time
 		timeLeft -= Time.deltaTime;
-
-		//base movement
-		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 150.0f;
-		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
-
-		transform.Rotate (0, x, 0);
-		transform.Translate (0, 0, z);
 
 		//regain flight time when touching ground
 		//might not need this
@@ -113,20 +100,27 @@ public class BirdScript : MonoBehaviour {
 				v.y = 0;
 				rb.velocity = v;
 				transform.Translate (0, 0.1f, 0);
+//				Camera.main.transform.Translate (0, 0.1f, 0);
 			} 
 			else if (Input.GetMouseButtonUp (1)) {
-			//	transform.Translate (0, 0, 0);
+				//	transform.Translate (0, 0, 0);
 				rb.useGravity = true;
 			}
+		}
+	}
 
-			//if (Input.GetKey ("k")) {
-			//	rb.useGravity = false;
-			//	flight = true;
-			//	transform.Translate (0, -0.1f, 0);
-			//} 
-			//else if (Input.GetKeyUp ("k")) {
-			//	transform.Translate (0, 0, 0);
-			//}
+	void Update () {
+		velocity = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical")).normalized * 10;
+		//Switch Bodies
+		schleem = Input.GetKeyDown("space");
+		if (schleem) {
+			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
+			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
+		}
+
+		//Makes sure bird stays on ground at switch
+		if(!flight){
+			rb.useGravity = true;
 		}
 
 
@@ -174,6 +168,14 @@ public class BirdScript : MonoBehaviour {
 						hit.transform.gameObject.GetComponent<BearAi> ().alive = false;
 						if (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> () != null) {
 							Destroy (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+						}
+					}
+				}
+				if (hit.transform.tag.ToLower() == "turtle") {
+					if(hit.transform.gameObject.GetComponent<TurtleAi> () != null){
+						hit.transform.gameObject.GetComponent<TurtleAi> ().alive = false;
+						if (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> () != null) {
+							Destroy (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
 						}
 					}
 				}

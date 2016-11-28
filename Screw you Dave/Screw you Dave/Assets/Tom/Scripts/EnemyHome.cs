@@ -28,9 +28,11 @@ public class EnemyHome : MonoBehaviour {
 				break;
 
 			case "bear":
+				enemy.GetComponent<BearAi> ().playerSeen = true;
 				break;
 
 			case "turtle":
+				enemy.GetComponent<TurtleAi> ().playerSeen = true;
 				break;
 
 			case "human":
@@ -49,9 +51,11 @@ public class EnemyHome : MonoBehaviour {
 				break;
 
 			case "bear":
+				enemy.GetComponent<BearAi> ().playerSeen = false;
 				break;
 
 			case "turtle":
+				enemy.GetComponent<TurtleAi> ().playerSeen = false;
 				break;
 
 			case "human":

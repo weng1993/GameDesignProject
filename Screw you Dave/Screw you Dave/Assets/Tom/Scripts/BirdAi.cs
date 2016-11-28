@@ -10,7 +10,7 @@ public class BirdAi : MonoBehaviour {
 	public float startingTime;
 	private float timeLeft;
 
-	public int meleeDamage = 10;
+	public int meleeDamage = 8;
 	private float meleeRange;
 	private float attackTime;
 	private float cooldown;
@@ -23,7 +23,7 @@ public class BirdAi : MonoBehaviour {
 
 	public Transform player;
 	private float speed = 6f;
-	private float attackSpeed = 6f;
+	private float attackSpeed = 3f;
 	private float rotationSpeed = 6f;
 
 	public Transform[] enemyPath = new Transform[12];
@@ -139,6 +139,18 @@ public class BirdAi : MonoBehaviour {
 				//SceneManager.LoadScene (2);
 				SceneManager.LoadScene (0);
 			}
+		}
+	}
+
+	void OnCollisionEnter(Collision col){
+		if (col.gameObject.tag == "Claw") {
+			Vector3 dir = transform.forward;
+			Destroy(col.gameObject);
+			rb.velocity = (new Vector3(0,0,0));
+			if (transform.gameObject.GetComponent<Health2> ().health <= 0)
+				rb.AddForce (-dir * 5, ForceMode.Impulse);
+			else
+				rb.AddForce (-dir*15, ForceMode.Impulse);
 		}
 	}
 }

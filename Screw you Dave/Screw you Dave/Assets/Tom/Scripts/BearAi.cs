@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BearAi : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class BearAi : MonoBehaviour {
 	public float startingTime;
 	private float timeLeft;
 
-	private int meleeDamage;
+	public int meleeDamage = 30;
 	private float meleeRange;
 	private float attackTime;
 	private float cooldown;
@@ -36,6 +37,9 @@ public class BearAi : MonoBehaviour {
 	public GameObject home;
 
 	void Start () {
+		for (int i = 0; i < 12; i++)
+			enemyPath [i] = home.transform.GetChild (i);
+		
 		timeLeft = startingTime;
 		//bounciness 0 (likely included in player already)
 		coll = GetComponent<BoxCollider>();
@@ -48,7 +52,6 @@ public class BearAi : MonoBehaviour {
 		rb.freezeRotation = true;
 
 		meleeRange = 4;
-		meleeDamage = 30;
 		attackTime = 0;
 		cooldown = .5f;
 
@@ -90,6 +93,7 @@ public class BearAi : MonoBehaviour {
 	}
 
 	void attackPlayer(){
+		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		Quaternion rotation = Quaternion.LookRotation (player.position - transform.position);
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 		if(Vector3.Distance(transform.position,player.position) > meleeRange) {
@@ -118,9 +122,22 @@ public class BearAi : MonoBehaviour {
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
-			if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
-				//Game over
+			if ((hit.transform.gameObject.GetComponent<Health2>().health <= 0) && (hit.transform.gameObject.tag == "Player")) {
+				//SceneManager.LoadScene (2);
+				SceneManager.LoadScene (0);
 			}
+		}
+	}
+
+	void OnCollisionEnter(Collision col){
+		if (col.gameObject.tag == "Claw") {
+			Vector3 dir = transform.forward;
+			Destroy(col.gameObject);
+			rb.velocity = (new Vector3(0,0,0));
+			if (transform.gameObject.GetComponent<Health2> ().health <= 0)
+				rb.AddForce (-dir * 5, ForceMode.Impulse);
+			else
+				rb.AddForce (-dir*15, ForceMode.Impulse);
 		}
 	}
 }
