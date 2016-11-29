@@ -1,0 +1,460 @@
+fileFormatVersion: 2
+guid: f64a753b5dbb64644b7bb3e4474a6ff8
+timeCreated: 1480347652
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bear1
+    100002: //RootNode
+    100004: chest
+    100006: hips
+    100008: joint1
+    100010: joint2
+    100012: joint2 1
+    100014: joint3
+    100016: joint3 1
+    100018: joint4
+    100020: joint4 1
+    100022: joint9
+    100024: l_claws
+    100026: l_elbow
+    100028: l_shoulder
+    100030: neck
+    100032: r_claws
+    100034: r_elbow
+    100036: r_shoulder
+    100038: waist
+    400000: bear1
+    400002: //RootNode
+    400004: chest
+    400006: hips
+    400008: joint1
+    400010: joint2
+    400012: joint2 1
+    400014: joint3
+    400016: joint3 1
+    400018: joint4
+    400020: joint4 1
+    400022: joint9
+    400024: l_claws
+    400026: l_elbow
+    400028: l_shoulder
+    400030: neck
+    400032: r_claws
+    400034: r_elbow
+    400036: r_shoulder
+    400038: waist
+    4300000: bear1
+    7400000: Walking
+    7400002: Fight
+    7400004: Idle
+    7400006: Scared
+    7400008: Die
+    7400010: Take 0014
+    9500000: //RootNode
+    13700000: bear1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walking
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bear1
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/joint1
+        weight: 1
+      - path: hips/joint1/joint2
+        weight: 1
+      - path: hips/joint1/joint2/joint3
+        weight: 1
+      - path: hips/joint1/joint2/joint3/joint4
+        weight: 1
+      - path: hips/joint9
+        weight: 1
+      - path: hips/joint9/joint2 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1/joint4 1
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest
+        weight: 1
+      - path: hips/waist/chest/l_shoulder
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow/l_claws
+        weight: 1
+      - path: hips/waist/chest/neck
+        weight: 1
+      - path: hips/waist/chest/r_shoulder
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow/r_claws
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Fight
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 185
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bear1
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/joint1
+        weight: 1
+      - path: hips/joint1/joint2
+        weight: 1
+      - path: hips/joint1/joint2/joint3
+        weight: 1
+      - path: hips/joint1/joint2/joint3/joint4
+        weight: 1
+      - path: hips/joint9
+        weight: 1
+      - path: hips/joint9/joint2 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1/joint4 1
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest
+        weight: 1
+      - path: hips/waist/chest/l_shoulder
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow/l_claws
+        weight: 1
+      - path: hips/waist/chest/neck
+        weight: 1
+      - path: hips/waist/chest/r_shoulder
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow/r_claws
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 330
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bear1
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/joint1
+        weight: 1
+      - path: hips/joint1/joint2
+        weight: 1
+      - path: hips/joint1/joint2/joint3
+        weight: 1
+      - path: hips/joint1/joint2/joint3/joint4
+        weight: 1
+      - path: hips/joint9
+        weight: 1
+      - path: hips/joint9/joint2 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1/joint4 1
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest
+        weight: 1
+      - path: hips/waist/chest/l_shoulder
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow/l_claws
+        weight: 1
+      - path: hips/waist/chest/neck
+        weight: 1
+      - path: hips/waist/chest/r_shoulder
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow/r_claws
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Scared
+      takeName: Take 001
+      firstFrame: 340
+      lastFrame: 440
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bear1
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/joint1
+        weight: 1
+      - path: hips/joint1/joint2
+        weight: 1
+      - path: hips/joint1/joint2/joint3
+        weight: 1
+      - path: hips/joint1/joint2/joint3/joint4
+        weight: 1
+      - path: hips/joint9
+        weight: 1
+      - path: hips/joint9/joint2 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1/joint4 1
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest
+        weight: 1
+      - path: hips/waist/chest/l_shoulder
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow/l_claws
+        weight: 1
+      - path: hips/waist/chest/neck
+        weight: 1
+      - path: hips/waist/chest/r_shoulder
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow/r_claws
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Die
+      takeName: Take 001
+      firstFrame: 450
+      lastFrame: 525
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bear1
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/joint1
+        weight: 1
+      - path: hips/joint1/joint2
+        weight: 1
+      - path: hips/joint1/joint2/joint3
+        weight: 1
+      - path: hips/joint1/joint2/joint3/joint4
+        weight: 1
+      - path: hips/joint9
+        weight: 1
+      - path: hips/joint9/joint2 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1/joint4 1
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest
+        weight: 1
+      - path: hips/waist/chest/l_shoulder
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow/l_claws
+        weight: 1
+      - path: hips/waist/chest/neck
+        weight: 1
+      - path: hips/waist/chest/r_shoulder
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow/r_claws
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

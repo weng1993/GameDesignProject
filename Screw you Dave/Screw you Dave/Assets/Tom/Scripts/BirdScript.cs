@@ -38,6 +38,8 @@ public class BirdScript : MonoBehaviour {
 
 	private Vector3 prevPos;
 
+	Animator m_Animator;
+
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
 		startingTime = 5;
@@ -47,6 +49,7 @@ public class BirdScript : MonoBehaviour {
 		PhysicMaterial material = new PhysicMaterial();
 		material.bounciness = 0;
 		coll.material = material;
+		m_Animator = GetComponent<Animator>();
 
 		//freeze rotation so object will fly straight
 		rb = GetComponent<Rigidbody> ();
@@ -78,6 +81,16 @@ public class BirdScript : MonoBehaviour {
 		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 10.0f;
 		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
 
+		//Set Walk Animation
+		if(Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
+			if(isGrounded()){
+				m_Animator.SetBool ("Walk",true);
+			}
+		}
+		else{
+			m_Animator.SetBool ("Walk",false);
+		}
+
 		transform.Translate (x, 0, z);
 
 		//update flight time
@@ -86,6 +99,7 @@ public class BirdScript : MonoBehaviour {
 		//regain flight time when touching ground
 		//might not need this
 		if (isGrounded ()) {
+			m_Animator.SetBool ("Fly", false);
 			timeLeft = startingTime;
 		}
 
@@ -99,6 +113,7 @@ public class BirdScript : MonoBehaviour {
 			//if flight time left use j to ascend and k to descend
 			//remove gravity when in flight
 			if (Input.GetMouseButton (1)) {
+				m_Animator.SetBool ("Fly", true);
 				rb.useGravity = false;
 				flight = true;
 				Vector3 v = rb.velocity;
@@ -136,6 +151,7 @@ public class BirdScript : MonoBehaviour {
 			if (Input.GetKeyDown ("e")) {
 				ch.parent = null;
 				holding = false;
+				m_Animator.SetTrigger ("PutDown");
 			} else {
 				ch.localPosition = offset;
 			}
@@ -207,6 +223,7 @@ public class BirdScript : MonoBehaviour {
 		{
 			if (Input.GetKey ("e")) {
 				if(!holding){
+					m_Animator.SetTrigger ("PickUp");
 					ch = other.gameObject.transform;
 					ch.SetParent (pt);
 					ch.localPosition = offset;

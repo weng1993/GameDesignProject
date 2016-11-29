@@ -36,6 +36,8 @@ public class BearAi : MonoBehaviour {
 
 	public GameObject home;
 
+	Animator m_Animator;
+
 	void Start () {
 		for (int i = 0; i < 12; i++)
 			enemyPath [i] = home.transform.GetChild (i);
@@ -63,6 +65,9 @@ public class BearAi : MonoBehaviour {
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
 
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
+
+		m_Animator = GetComponent<Animator>();
+		m_Animator.SetBool ("Walk", true);
 	}
 
 	void Update () {
@@ -72,6 +77,8 @@ public class BearAi : MonoBehaviour {
 			} else {
 				idle ();
 			}
+		}else {
+			m_Animator.SetBool("Dead",true);
 		}
 	}
 
@@ -115,10 +122,12 @@ public class BearAi : MonoBehaviour {
 		Vector2 pathDirection = enemyPath [pathNum].position - transform.position;
 		float speedElement = Vector2.Dot (pathDirection.normalized,transform.forward);
 		transform.Translate (0,0,Time.deltaTime*attackSpeed);
+
 	}
 
 	void attack() {
 		RaycastHit hit;
+		m_Animator.SetTrigger ("Attack");
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);

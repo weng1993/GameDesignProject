@@ -1,0 +1,382 @@
+fileFormatVersion: 2
+guid: 4e7fa9dac127e4d69898690043d5ec1c
+timeCreated: 1480349584
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Head
+    100002: Leg_LeftBack
+    100004: Leg_LeftFront
+    100006: Leg_RightBack
+    100008: Leg_RightFront
+    100010: Neck
+    100012: Tail
+    100014: //RootNode
+    400000: Head
+    400002: Leg_LeftBack
+    400004: Leg_LeftFront
+    400006: Leg_RightBack
+    400008: Leg_RightFront
+    400010: Neck
+    400012: Tail
+    400014: //RootNode
+    2300000: Head
+    2300002: Leg_LeftBack
+    2300004: Leg_LeftFront
+    2300006: Leg_RightBack
+    2300008: Leg_RightFront
+    2300010: Neck
+    2300012: Tail
+    2300014: //RootNode
+    3300000: Head
+    3300002: Leg_LeftBack
+    3300004: Leg_LeftFront
+    3300006: Leg_RightBack
+    3300008: Leg_RightFront
+    3300010: Neck
+    3300012: Tail
+    3300014: //RootNode
+    4300000: Body
+    4300002: Neck
+    4300004: Head
+    4300006: Leg_RightFront
+    4300008: Leg_RightBack
+    4300010: Tail
+    4300012: Leg_LeftFront
+    4300014: Leg_LeftBack
+    7400000: Idle
+    7400002: Walking
+    7400004: Attack
+    7400006: Shooting
+    7400008: Swimming
+    7400010: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Leg_LeftBack
+        weight: 1
+      - path: Leg_LeftFront
+        weight: 1
+      - path: Leg_RightBack
+        weight: 1
+      - path: Leg_RightFront
+        weight: 1
+      - path: Neck
+        weight: 1
+      - path: Neck/Head
+        weight: 1
+      - path: Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Walking
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 600
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Leg_LeftBack
+        weight: 1
+      - path: Leg_LeftFront
+        weight: 1
+      - path: Leg_RightBack
+        weight: 1
+      - path: Leg_RightFront
+        weight: 1
+      - path: Neck
+        weight: 1
+      - path: Neck/Head
+        weight: 1
+      - path: Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 700
+      lastFrame: 800
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Leg_LeftBack
+        weight: 1
+      - path: Leg_LeftFront
+        weight: 1
+      - path: Leg_RightBack
+        weight: 1
+      - path: Leg_RightFront
+        weight: 1
+      - path: Neck
+        weight: 1
+      - path: Neck/Head
+        weight: 1
+      - path: Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Shooting
+      takeName: Take 001
+      firstFrame: 900
+      lastFrame: 950
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Leg_LeftBack
+        weight: 1
+      - path: Leg_LeftFront
+        weight: 1
+      - path: Leg_RightBack
+        weight: 1
+      - path: Leg_RightFront
+        weight: 1
+      - path: Neck
+        weight: 1
+      - path: Neck/Head
+        weight: 1
+      - path: Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Swimming
+      takeName: Take 001
+      firstFrame: 1200
+      lastFrame: 1500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Leg_LeftBack
+        weight: 1
+      - path: Leg_LeftFront
+        weight: 1
+      - path: Leg_RightBack
+        weight: 1
+      - path: Leg_RightFront
+        weight: 1
+      - path: Neck
+        weight: 1
+      - path: Neck/Head
+        weight: 1
+      - path: Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1600
+      lastFrame: 1800
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Leg_LeftBack
+        weight: 1
+      - path: Leg_LeftFront
+        weight: 1
+      - path: Leg_RightBack
+        weight: 1
+      - path: Leg_RightFront
+        weight: 1
+      - path: Neck
+        weight: 1
+      - path: Neck/Head
+        weight: 1
+      - path: Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

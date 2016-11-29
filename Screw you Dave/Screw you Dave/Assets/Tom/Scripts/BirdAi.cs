@@ -35,6 +35,8 @@ public class BirdAi : MonoBehaviour {
 
 	public GameObject home;
 
+	Animator m_Animator;
+
 	void Start () {
 
 		for (int i = 0; i < 12; i++)
@@ -46,6 +48,7 @@ public class BirdAi : MonoBehaviour {
 		PhysicMaterial material = new PhysicMaterial();
 		material.bounciness = 0;
 		coll.material = material;
+		m_Animator = GetComponent<Animator>();
 
 		//freeze rotation so object will fly straight
 		rb = GetComponent<Rigidbody> ();
@@ -71,6 +74,8 @@ public class BirdAi : MonoBehaviour {
 			} else {
 				idle ();
 			}
+		} else{
+			m_Animator.SetBool("Dead",true);
 		}
 	}
 		
@@ -92,6 +97,8 @@ public class BirdAi : MonoBehaviour {
 	}
 
 	void attackPlayer(){
+		m_Animator.SetBool ("Fly", false);
+		m_Animator.SetBool ("Walk", true);
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		Quaternion rotation = Quaternion.LookRotation (player.position - transform.position);
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationSpeed);
@@ -109,6 +116,8 @@ public class BirdAi : MonoBehaviour {
 	}
 
 	void idle(){
+		m_Animator.SetBool ("Fly", true);
+		m_Animator.SetBool ("Walk", false);
 		Quaternion rotation = Quaternion.LookRotation (enemyPath[pathNum].position - transform.position +(flight));
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 		Vector2 pathDirection = enemyPath [pathNum].position - transform.position +(flight);
