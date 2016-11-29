@@ -36,6 +36,8 @@ public class BirdScript : MonoBehaviour {
 
 	public bool flight = false;
 
+	private Vector3 prevPos;
+
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
 		startingTime = 5;
@@ -66,6 +68,9 @@ public class BirdScript : MonoBehaviour {
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
 
+		prevPos = transform.position;
+
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	void FixedUpdate(){
@@ -100,13 +105,15 @@ public class BirdScript : MonoBehaviour {
 				v.y = 0;
 				rb.velocity = v;
 				transform.Translate (0, 0.1f, 0);
-//				Camera.main.transform.Translate (0, 0.1f, 0);
 			} 
-			else if (Input.GetMouseButtonUp (1)) {
+			else if (!Input.GetMouseButton (1)) {
 				//	transform.Translate (0, 0, 0);
 				rb.useGravity = true;
 			}
 		}
+		float yDif = transform.position.y - prevPos.y;
+		Camera.main.transform.Translate (0, yDif, 0);
+		prevPos = transform.position;
 	}
 
 	void Update () {
@@ -147,6 +154,11 @@ public class BirdScript : MonoBehaviour {
 		healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
 		AtkSlider.value = 1 - (attackTime / cooldown);
 		CDSlider.value = (timeLeft / startingTime);
+
+		if (Input.GetMouseButtonDown (0)) {
+			if (Cursor.lockState == CursorLockMode.None)
+				Cursor.lockState = CursorLockMode.Locked;
+		}
 	}
 
 	void attack() {

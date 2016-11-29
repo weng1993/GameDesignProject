@@ -67,7 +67,7 @@ public class Orbit : MonoBehaviour
 		//t.Rotate (0, -(Yaw*14.05f) , 0);
 		t.Rotate(0, Input.GetAxis("Mouse X") * RotateSpeedPerTime * 14.05f, 0);
 		transform.Translate(new Vector3(Yaw, -Pitch, 0));
-		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+//		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
 		Vector3 pos = Target.transform.position + new Vector3 (0, 1, 0);
 		transform.LookAt (pos);
