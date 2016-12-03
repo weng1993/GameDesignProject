@@ -154,6 +154,7 @@ ModelImporter:
     7400014: putDown
     7400016: scared/Water
     7400018: Dying
+    7400020: Dead
     9500000: //RootNode
     13700000: pCylinder4
   materials:
@@ -1675,6 +1676,172 @@ ModelImporter:
       name: Dying
       takeName: Take 001
       firstFrame: 500
+      lastFrame: 535
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/transform1
+        weight: 1
+      - path: head
+        weight: 1
+      - path: head/transform7
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/chest
+        weight: 1
+      - path: hips/chest/l_wing
+        weight: 1
+      - path: hips/chest/l_wing/l_wing_end
+        weight: 1
+      - path: hips/chest/neck
+        weight: 1
+      - path: hips/chest/neck/head_
+        weight: 1
+      - path: hips/chest/neck/head_/bottom_beak
+        weight: 1
+      - path: hips/chest/neck/head_/bottom_beak/bottom_beak_end
+        weight: 1
+      - path: hips/chest/neck/head_/joint1
+        weight: 1
+      - path: hips/chest/neck/head_/joint2
+        weight: 1
+      - path: hips/chest/neck/head_/top_beak
+        weight: 1
+      - path: hips/chest/neck/head_/top_beak/top_beak_end
+        weight: 1
+      - path: hips/chest/r_wing
+        weight: 1
+      - path: hips/chest/r_wing/r_wing_end
+        weight: 1
+      - path: hips/l_leg
+        weight: 1
+      - path: hips/l_leg/l_ankle
+        weight: 1
+      - path: hips/l_leg/l_ankle/joint3
+        weight: 1
+      - path: hips/l_leg/l_ankle/joint3/joint8
+        weight: 1
+      - path: hips/l_leg/l_ankle/joint4
+        weight: 1
+      - path: hips/l_leg/l_ankle/joint4/joint6
+        weight: 1
+      - path: hips/l_leg/l_ankle/joint5
+        weight: 1
+      - path: hips/l_leg/l_ankle/joint5/joint7
+        weight: 1
+      - path: hips/r_leg
+        weight: 1
+      - path: hips/r_leg/r_ankle
+        weight: 1
+      - path: hips/r_leg/r_ankle/joint3 1
+        weight: 1
+      - path: hips/r_leg/r_ankle/joint3 1/joint8 1
+        weight: 1
+      - path: hips/r_leg/r_ankle/joint4 1
+        weight: 1
+      - path: hips/r_leg/r_ankle/joint4 1/joint6 1
+        weight: 1
+      - path: hips/r_leg/r_ankle/joint5 1
+        weight: 1
+      - path: hips/r_leg/r_ankle/joint5 1/joint7 1
+        weight: 1
+      - path: hips/tail
+        weight: 1
+      - path: hips/tail/tail_end
+        weight: 1
+      - path: nurbsCircle1
+        weight: 1
+      - path: nurbsCircle2
+        weight: 1
+      - path: nurbsCircle3
+        weight: 1
+      - path: pCone1
+        weight: 1
+      - path: pCone1/transform3
+        weight: 1
+      - path: pCone2
+        weight: 1
+      - path: pCone2/transform2
+        weight: 1
+      - path: pCone3
+        weight: 1
+      - path: pCone3/transform12
+        weight: 1
+      - path: pCone4
+        weight: 1
+      - path: pCone4/transform5
+        weight: 1
+      - path: pCone5
+        weight: 1
+      - path: pCone5/transform4
+        weight: 1
+      - path: pCone6
+        weight: 1
+      - path: pCone6/transform9
+        weight: 1
+      - path: pCone7
+        weight: 1
+      - path: pCone7/transform15
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform14
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform13
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform16
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform6
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform8
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform10
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Dead
+      takeName: Take 001
+      firstFrame: 535
       lastFrame: 535
       wrapMode: 0
       orientationOffsetY: 0

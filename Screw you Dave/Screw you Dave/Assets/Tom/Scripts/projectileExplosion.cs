@@ -32,6 +32,7 @@ public class projectileExplosion : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Bird" && col.gameObject.GetComponent<Health2>().health ==0) {
+			Player.gameObject.GetComponent<Animator> ().SetTrigger ("ShleemSuc");
 			col.gameObject.GetComponent<Animator> ().SetBool ("Dead", false);
 			Player.gameObject.GetComponent<Animator> ().SetBool ("Dead", true);
 			collision = true; //So object isn't destroyed during function

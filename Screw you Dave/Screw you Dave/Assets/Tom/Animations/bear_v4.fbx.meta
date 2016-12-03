@@ -53,6 +53,7 @@ ModelImporter:
     7400008: Bear Die
     7400010: Bear Water
     7400012: Bear Attack
+    7400014: Bear Dead
     9500000: //RootNode
     13700000: bear1
   materials:
@@ -489,6 +490,74 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 540
       lastFrame: 580
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bear1
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/joint1
+        weight: 1
+      - path: hips/joint1/joint2
+        weight: 1
+      - path: hips/joint1/joint2/joint3
+        weight: 1
+      - path: hips/joint1/joint2/joint3/joint4
+        weight: 1
+      - path: hips/joint9
+        weight: 1
+      - path: hips/joint9/joint2 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1
+        weight: 1
+      - path: hips/joint9/joint2 1/joint3 1/joint4 1
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest
+        weight: 1
+      - path: hips/waist/chest/l_shoulder
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest/l_shoulder/l_elbow/l_claws
+        weight: 1
+      - path: hips/waist/chest/neck
+        weight: 1
+      - path: hips/waist/chest/r_shoulder
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest/r_shoulder/r_elbow/r_claws
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Bear Dead
+      takeName: Take 001
+      firstFrame: 515
+      lastFrame: 515
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

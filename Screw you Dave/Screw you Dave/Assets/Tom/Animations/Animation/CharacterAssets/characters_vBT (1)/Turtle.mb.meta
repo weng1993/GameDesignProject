@@ -4,7 +4,49 @@ timeCreated: 1480350799
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: Head
+    100002: Leg_LeftBack
+    100004: Leg_LeftFront
+    100006: Leg_RightBack
+    100008: Leg_RightFront
+    100010: Neck
+    100012: Tail
+    100014: //RootNode
+    400000: Head
+    400002: Leg_LeftBack
+    400004: Leg_LeftFront
+    400006: Leg_RightBack
+    400008: Leg_RightFront
+    400010: Neck
+    400012: Tail
+    400014: //RootNode
+    2300000: Head
+    2300002: Leg_LeftBack
+    2300004: Leg_LeftFront
+    2300006: Leg_RightBack
+    2300008: Leg_RightFront
+    2300010: Neck
+    2300012: Tail
+    2300014: //RootNode
+    3300000: Head
+    3300002: Leg_LeftBack
+    3300004: Leg_LeftFront
+    3300006: Leg_RightBack
+    3300008: Leg_RightFront
+    3300010: Neck
+    3300012: Tail
+    3300014: //RootNode
+    4300000: Body
+    4300002: Neck
+    4300004: Head
+    4300006: Leg_RightFront
+    4300008: Leg_RightBack
+    4300010: Tail
+    4300012: Leg_LeftFront
+    4300014: Leg_LeftBack
+    7400000: Take 001
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

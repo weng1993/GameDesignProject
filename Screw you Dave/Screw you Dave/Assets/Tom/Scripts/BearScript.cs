@@ -80,6 +80,7 @@ public class BearScript : MonoBehaviour {
 		//Switch Bodies
 		schleem = Input.GetKeyDown("space");
 		if (schleem) {
+			m_Animator.SetTrigger ("ShleemAttempt");
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position + fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}

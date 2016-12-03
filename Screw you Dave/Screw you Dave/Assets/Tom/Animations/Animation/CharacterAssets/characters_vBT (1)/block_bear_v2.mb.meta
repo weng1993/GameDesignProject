@@ -4,7 +4,51 @@ timeCreated: 1480347609
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: bear1
+    100002: //RootNode
+    100004: chest
+    100006: hips
+    100008: joint1
+    100010: joint2
+    100012: joint2 1
+    100014: joint3
+    100016: joint3 1
+    100018: joint4
+    100020: joint4 1
+    100022: joint9
+    100024: l_claws
+    100026: l_elbow
+    100028: l_shoulder
+    100030: neck
+    100032: r_claws
+    100034: r_elbow
+    100036: r_shoulder
+    100038: waist
+    400000: bear1
+    400002: //RootNode
+    400004: chest
+    400006: hips
+    400008: joint1
+    400010: joint2
+    400012: joint2 1
+    400014: joint3
+    400016: joint3 1
+    400018: joint4
+    400020: joint4 1
+    400022: joint9
+    400024: l_claws
+    400026: l_elbow
+    400028: l_shoulder
+    400030: neck
+    400032: r_claws
+    400034: r_elbow
+    400036: r_shoulder
+    400038: waist
+    4300000: bear1
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: bear1
   materials:
     importMaterials: 1
     materialName: 0
