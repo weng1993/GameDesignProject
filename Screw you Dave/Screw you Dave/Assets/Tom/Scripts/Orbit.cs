@@ -64,12 +64,12 @@ public class Orbit : MonoBehaviour
 
 		Yaw = -Input.GetAxis("Mouse X") * RotateSpeedPerTime;
 		Pitch = Input.GetAxis("Mouse Y") * RotateSpeedPerTime;
-		//t.Rotate (0, -(Yaw*14.05f) , 0);
-		t.Rotate(0, Input.GetAxis("Mouse X") * RotateSpeedPerTime * 14.05f, 0);
+		t.rotation = transform.rotation;
+		t.Rotate (Vector3.left * 23.757f);
 		transform.Translate(new Vector3(Yaw, -Pitch, 0));
 //		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
-		Vector3 pos = Target.transform.position + new Vector3 (0, 1, 0);
+		Vector3 pos = Target.transform.position + new Vector3 (0, 2, 0);
 		transform.LookAt (pos);
 	}
 }

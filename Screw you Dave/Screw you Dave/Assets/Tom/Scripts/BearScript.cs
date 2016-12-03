@@ -30,7 +30,11 @@ public class BearScript : MonoBehaviour {
 	public Slider AtkSlider;
 	public Slider CDSlider;
 
+	int layermask = 1 << 8;
+
 	Animator m_Animator;
+
+	private float x;
 
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
@@ -69,7 +73,9 @@ public class BearScript : MonoBehaviour {
 			m_Animator.SetBool ("Walk",false);
 		}
 
-		transform.Translate (x, 0, z);
+		if (isGrounded ())
+//			transform.position = (new Vector3 (transform.position.x + x, 0, transform.position.z + z));
+			transform.Translate (x, 0, z);
 
 		//Switch Bodies
 		schleem = Input.GetKeyDown("space");
@@ -82,7 +88,7 @@ public class BearScript : MonoBehaviour {
 			CDTime -= Time.deltaTime;
 		if (CDTime <= 0) {
 			if (Input.GetMouseButton (1)) {
-				GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix2, transform.rotation);
+				GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix, transform.rotation);
 				claw.GetComponent<Rigidbody> ().AddForce (transform.forward * bulletImpulse, ForceMode.Impulse);
 				CDTime = specialCD;
 				m_Animator.SetTrigger ("Claw");
@@ -138,5 +144,10 @@ public class BearScript : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	bool isGrounded() {
+		//change 3rd var depending on object size
+		return Physics.Raycast (transform.position, -Vector3.up, 0.6f, layermask);
 	}
 }

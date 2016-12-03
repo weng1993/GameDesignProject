@@ -74,6 +74,7 @@ public class BirdScript : MonoBehaviour {
 		prevPos = transform.position;
 
 		Cursor.lockState = CursorLockMode.Locked;
+
 	}
 
 	void FixedUpdate(){
@@ -91,18 +92,36 @@ public class BirdScript : MonoBehaviour {
 			m_Animator.SetBool ("Walk",false);
 		}
 
-		transform.Translate (x, 0, z);
-
 		//update flight time
-		timeLeft -= Time.deltaTime;
+//		if (!isGrounded ()) {
+//			timeLeft -= Time.deltaTime;
+//		}
 
 		//regain flight time when touching ground
 		//might not need this
 		if (isGrounded ()) {
+			flight = false;
 			m_Animator.SetBool ("Fly", false);
 			timeLeft = startingTime;
+			transform.Translate (x, 0, z);
+		} else {
+			if (flight == true)
+				transform.Translate (x, 0, z);
+			timeLeft -= Time.deltaTime;
 		}
 
+//		transform.Translate (x, 0, z);
+/*		if (!flight) {
+			if (isGrounded ()) {
+				transform.Translate (x, 0, z);
+				Debug.Log ("walking");
+			} else {
+				Debug.Log ("in air");
+			}
+		} else {
+			transform.Translate (x, 0, z);
+		}
+*/
 		//out of flight time
 		if (timeLeft <= 0) {
 			//re-enable gravity to make object fall

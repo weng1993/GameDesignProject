@@ -11,7 +11,7 @@ public class BearAi : MonoBehaviour {
 	private float timeLeft;
 
 	public int meleeDamage = 30;
-	private float meleeRange;
+	public float meleeRange = 4;
 	private float attackTime;
 	private float cooldown;
 
@@ -53,7 +53,6 @@ public class BearAi : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		rb.freezeRotation = true;
 
-		meleeRange = 4;
 		attackTime = 0;
 		cooldown = .5f;
 

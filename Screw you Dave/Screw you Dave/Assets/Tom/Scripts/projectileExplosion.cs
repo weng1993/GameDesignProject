@@ -18,7 +18,8 @@ public class projectileExplosion : MonoBehaviour {
 		cam = Camera.main;
 		offset = cam.transform.position - Player.transform.position;
 		rotOffset = cam.transform.rotation;// - Player.transform.rotation;
-		pos = new Vector3 (-0.1900001f, 3.922f, -5.51f);
+		//pos = new Vector3 (-0.1900001f, 3.922f, -5.51f);
+		pos = new Vector3 (-0.1900001f, 3f, -6.51f);
 	}
 
 	// Update is called once per frame
@@ -31,6 +32,8 @@ public class projectileExplosion : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Bird" && col.gameObject.GetComponent<Health2>().health ==0) {
+			col.gameObject.GetComponent<Animator> ().SetBool ("Dead", false);
+			Player.gameObject.GetComponent<Animator> ().SetBool ("Dead", true);
 			collision = true; //So object isn't destroyed during function
 			//Check what type of animal the player is
 			if(Player.gameObject.GetComponent<BearScript>() != null){
@@ -116,6 +119,8 @@ public class projectileExplosion : MonoBehaviour {
 		}
 		if (col.gameObject.tag == "Bear"&& col.gameObject.GetComponent<Health2>().health ==0) {
 			collision = true; //So object isn't destroyed during function
+			col.gameObject.GetComponent<Animator> ().SetBool ("Dead", false);
+			Player.gameObject.GetComponent<Animator> ().SetBool ("Dead", true);
 			//Check what type of animal the player is
 			if(Player.gameObject.GetComponent<BirdScript>() != null){
 				col.gameObject.AddComponent<BearScript> ();
@@ -200,6 +205,8 @@ public class projectileExplosion : MonoBehaviour {
 		}
 		if (col.gameObject.tag == "Turtle"&& col.gameObject.GetComponent<Health2>().health ==0) {
 			collision = true; //So object isn't destroyed during function
+			col.gameObject.GetComponent<Animator> ().SetBool ("Dead", false);
+			Player.gameObject.GetComponent<Animator> ().SetBool ("Dead", true);
 			//Check what type of animal the player is
 			if(Player.gameObject.GetComponent<BirdScript>() != null){
 				col.gameObject.AddComponent<TurtleScript> ();
