@@ -62,6 +62,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 
 				}
 			if(Player.gameObject.GetComponent<BirdScript>() != null){
@@ -88,6 +89,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 
 			}
 			if(Player.gameObject.GetComponent<TurtleScript>() != null){
@@ -114,6 +116,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 
 			}
 			Explode ();
@@ -149,6 +152,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 			}
 			if(Player.gameObject.GetComponent<BearScript>() != null){
 				col.gameObject.AddComponent<BearScript> ();
@@ -175,6 +179,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 			}
 			if(Player.gameObject.GetComponent<TurtleScript>() != null){
 				col.gameObject.AddComponent<BearScript> ();
@@ -201,6 +206,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 			}
 			Explode ();
 		}
@@ -234,6 +240,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 			}
 			if(Player.gameObject.GetComponent<BearScript>() != null){
 				col.gameObject.AddComponent<TurtleScript> ();
@@ -260,6 +267,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 			}
 			if(Player.gameObject.GetComponent<TurtleScript>() != null){
 				col.gameObject.AddComponent<TurtleScript> ();
@@ -286,6 +294,7 @@ public class projectileExplosion : MonoBehaviour {
 				cam.transform.localPosition = pos;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 			}
 			Explode ();
 		}	

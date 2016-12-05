@@ -17,6 +17,17 @@ public class DestructionController : MonoBehaviour {
 	void Explode(){
 		Instantiate (remains, transform.position, transform.rotation);
 		Destroy (gameObject);
-		//remains.transform.Find("GameObject").GetComponent<SphereCollider>().enabled = false;
+//		Debug.Log ("start");
+//		StartCoroutine (Delay ());
+//		Debug.Log ("end2");
 	}
+//	IEnumerator Delay() {
+//		Debug.Log ("in");
+//		yield return new WaitForSeconds (1);
+//		Debug.Log ("end");
+//		remains.transform.Find("GameObject").GetComponent<SphereCollider>().enabled = false;
+//		for (int i = 0; i < 9; i++) {
+//			remains.transform.Find ("Rock (" + i + ")").GetComponent<BoxCollider> ().enabled = false;
+//		}
+//	}
 }

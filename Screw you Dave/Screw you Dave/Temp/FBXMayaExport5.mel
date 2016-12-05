@@ -1,0 +1,22 @@
+print "Starting maya loading and fbx conversion \n";
+			
+if (`file -q -exists "C:/Users/Eric/DOWNLO~1/GAMEDE~1/GDFinal/SCREWY~1/Assets/Tom/ANIMAT~1/bear_v4.mb"`)
+{
+	file -o "C:/Users/Eric/DOWNLO~1/GAMEDE~1/GDFinal/SCREWY~1/Assets/Tom/ANIMAT~1/bear_v4.mb";
+	FBXExportEmbeddedTextures -v false;
+	// FBXExportHardEdges -v true;
+	FBXExportApplyConstantKeyReducer -v false;
+	FBXExportShowUI -v false;
+
+	print "Before fbx export\n";
+	FBXExport -f "C:/Users/Eric/DOWNLO~1/GAMEDE~1/GDFinal/SCREWY~1/Temp/ExportedFBXFile.fbx";
+	print "after fbx export\n";
+}
+else
+	print "Could not open Maya file.";
+
+system ("del \"C:\\Users\\Eric\\DOWNLO~1\\GAMEDE~1\\GDFinal\\SCREWY~1\\Temp\\CommandPipe\"");
+
+$donepipeKill = `fopen "C:/Users/Eric/DOWNLO~1/GAMEDE~1/GDFinal/SCREWY~1/Temp/SyncPipeKill" "w"`;
+fwrite $donepipeKill "Done";
+fclose $donepipeKill;

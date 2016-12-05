@@ -33,6 +33,7 @@ public class Orbit : MonoBehaviour
 {
 	public GameObject Target;
 	public Transform t;
+	public Transform mesh;
 	public float RotateSpeed = 10,
 	FollowDistance = 4,
 	FollowHeight = 1;
@@ -42,7 +43,8 @@ public class Orbit : MonoBehaviour
 	CurrentRotationAngle,
 	CurrentHeight,
 	Yaw,
-	Pitch;
+	Pitch,
+	xRot;
 	Quaternion CurrentRotation;
 
 	void LateUpdate()
@@ -64,8 +66,9 @@ public class Orbit : MonoBehaviour
 
 		Yaw = -Input.GetAxis("Mouse X") * RotateSpeedPerTime;
 		Pitch = Input.GetAxis("Mouse Y") * RotateSpeedPerTime;
-		t.rotation = transform.rotation;
-		t.Rotate (Vector3.left * 23.757f);
+		t.rotation = Quaternion.Euler (0, CurrentRotationAngle, 0);
+		mesh.rotation = transform.rotation;
+//		t.Rotate (Vector3.left * 23.757f);
 		transform.Translate(new Vector3(Yaw, -Pitch, 0));
 //		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
