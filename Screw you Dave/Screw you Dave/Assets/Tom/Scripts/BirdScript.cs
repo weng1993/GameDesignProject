@@ -155,6 +155,7 @@ public class BirdScript : MonoBehaviour {
 		//Switch Bodies
 		schleem = Input.GetKeyDown("space");
 		if (schleem) {
+			m_Animator.SetTrigger ("Schleem");
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
@@ -198,6 +199,7 @@ public class BirdScript : MonoBehaviour {
 
 	void attack() {
 		RaycastHit hit;
+		m_Animator.SetTrigger ("Attack");
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);

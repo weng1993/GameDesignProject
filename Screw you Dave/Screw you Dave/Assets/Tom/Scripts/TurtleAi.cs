@@ -36,6 +36,8 @@ public class TurtleAi : MonoBehaviour {
 
 	public GameObject home;
 
+	Animator m_Animator;
+
 	void Start () {
 		for (int i = 0; i < 12; i++)
 			enemyPath [i] = home.transform.GetChild (i);
@@ -46,6 +48,7 @@ public class TurtleAi : MonoBehaviour {
 		PhysicMaterial material = new PhysicMaterial();
 		material.bounciness = 0;
 		coll.material = material;
+		m_Animator = gameObject.GetComponent<Animator> ();
 
 		//freeze rotation so object will fly straight
 		rb = GetComponent<Rigidbody> ();
@@ -63,6 +66,7 @@ public class TurtleAi : MonoBehaviour {
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
 
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
+		m_Animator.SetBool ("Walk", true);
 	}
 
 	void Update () {
@@ -72,6 +76,9 @@ public class TurtleAi : MonoBehaviour {
 			} else {
 				idle ();
 			}
+		} else {
+			m_Animator.SetBool ("Dead", true);
+			m_Animator.SetBool ("Walk", false);
 		}
 	}
 
@@ -119,6 +126,7 @@ public class TurtleAi : MonoBehaviour {
 
 	void attack() {
 		RaycastHit hit;
+		m_Animator.SetTrigger ("Attack");
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);

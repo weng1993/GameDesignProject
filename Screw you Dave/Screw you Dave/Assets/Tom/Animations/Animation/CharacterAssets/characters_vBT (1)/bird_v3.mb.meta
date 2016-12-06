@@ -1841,8 +1841,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Dead
       takeName: Take 001
-      firstFrame: 535
-      lastFrame: 535
+      firstFrame: 534
+      lastFrame: 534
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
