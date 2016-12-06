@@ -126,7 +126,7 @@ public class TurtleAi : MonoBehaviour {
 
 	void attack() {
 		RaycastHit hit;
-<<<<<<< HEAD
+
 		m_Animator.SetTrigger ("Attack");
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
@@ -134,7 +134,9 @@ public class TurtleAi : MonoBehaviour {
 			if ((hit.transform.gameObject.GetComponent<Health2>().health <= 0) && (hit.transform.gameObject.tag == "Player")){
 				//SceneManager.LoadScene (2);
 				SceneManager.LoadScene (0);
-=======
+			}
+		}
+
 
 		Vector3 dir = (player.position - transform.position) / (player.position - transform.position).magnitude;
 		Vector3 dir2 = (player.position - (transform.position + new Vector3(0,.1f,0))) / (player.position - transform.position).magnitude;
@@ -152,7 +154,6 @@ public class TurtleAi : MonoBehaviour {
 					//SceneManager.LoadScene (2);
 					SceneManager.LoadScene (0);
 				}
->>>>>>> 090000f461798c363e50b7014bdc7fb31ab8d54b
 			}
 			i++;
 		}

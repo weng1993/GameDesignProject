@@ -158,8 +158,8 @@ public class BirdScript : MonoBehaviour {
 		schleem = Input.GetKeyDown("space");
 		if (schleem) {
 			m_Animator.SetTrigger ("Schleem");
-			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
-			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
+			//GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
+			//projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,Camera.main.transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
@@ -211,8 +211,13 @@ public class BirdScript : MonoBehaviour {
 				if (hit.transform.tag.ToLower() == "bird") {
 					if(hit.transform.gameObject.GetComponent<BirdAi> () != null){
 						hit.transform.gameObject.GetComponent<BirdAi> ().alive = false;
-						if(hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null){
+						if (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null) {
 							Destroy (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> ());
+						}
+					}
+				}
+			}
+		}
 		bool collided = false;
 
 		Vector3 dir = Camera.main.transform.TransformDirection (Vector3.forward);

@@ -151,6 +151,15 @@ ModelImporter:
     400142: waist
     4300000: pCylinder18
     7400000: Take 001
+    7400002: Idle
+    7400004: Walk
+    7400006: Shoot
+    7400008: Dying
+    7400010: Dead
+    7400012: Scared
+    7400014: SchleemSmall
+    7400016: SchleemSuccess
+    7400018: Schleem Attempt
     9500000: //RootNode
     13700000: pCylinder18
   materials:
@@ -173,7 +182,1727 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 585
+      lastFrame: 700
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 340
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Shoot
+      takeName: Take 001
+      firstFrame: 380
+      lastFrame: 445
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Dying
+      takeName: Take 001
+      firstFrame: 460
+      lastFrame: 510
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Dead
+      takeName: Take 001
+      firstFrame: 510
+      lastFrame: 510
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Scared
+      takeName: Take 001
+      firstFrame: 540
+      lastFrame: 630
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: SchleemSmall
+      takeName: Take 001
+      firstFrame: 670
+      lastFrame: 690
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: SchleemSuccess
+      takeName: Take 001
+      firstFrame: 630
+      lastFrame: 650
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Schleem Attempt
+      takeName: Take 001
+      firstFrame: 650
+      lastFrame: 670
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chest
+        weight: 1
+      - path: chest/transform5
+        weight: 1
+      - path: chest1
+        weight: 1
+      - path: chest1/transform15
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/l_thigh
+        weight: 1
+      - path: hips/l_thigh/l_knee
+        weight: 1
+      - path: hips/l_thigh/l_knee/l_ankle
+        weight: 1
+      - path: hips/r_thigh
+        weight: 1
+      - path: hips/r_thigh/r_knee
+        weight: 1
+      - path: hips/r_thigh/r_knee/r_ankle
+        weight: 1
+      - path: hips/waist
+        weight: 1
+      - path: hips/waist/chest_joint
+        weight: 1
+      - path: hips/waist/chest_joint/head
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/l_shoulder/l_elbow/l_hand
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow
+        weight: 1
+      - path: hips/waist/chest_joint/r_shoulder/r_elbow/r_gun
+        weight: 1
+      - path: l_lower_arm
+        weight: 1
+      - path: l_lower_arm/transform1
+        weight: 1
+      - path: l_upper_arm
+        weight: 1
+      - path: l_upper_arm/transform2
+        weight: 1
+      - path: l_upper_arm1
+        weight: 1
+      - path: l_upper_arm1/transform3
+        weight: 1
+      - path: l_upper_arm2
+        weight: 1
+      - path: l_upper_arm2/transform4
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform10
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform7
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform6
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform9
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform8
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform11
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform12
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform24
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform18
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform21
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform20
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform19
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform22
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform27
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform25
+        weight: 1
+      - path: pCylinder16
+        weight: 1
+      - path: pCylinder16/transform23
+        weight: 1
+      - path: pCylinder17
+        weight: 1
+      - path: pCylinder17/transform26
+        weight: 1
+      - path: pCylinder18
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform14
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform13
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform16
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform17
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
