@@ -9,7 +9,7 @@ public class BearScript : MonoBehaviour {
 	float bulletImpulse = 20f;
 	public GameObject projectile_prefab;
 	bool schleem = false;
-	Vector3 fix = new Vector3 (0,0.5f,0);
+	Vector3 fix = new Vector3 (0,1.5f,0.5f);
 	Vector3 fix2 = new Vector3 (.5f,2.5f,0);
 	public GameObject claw_prefab;
 
@@ -81,16 +81,16 @@ public class BearScript : MonoBehaviour {
 		schleem = Input.GetKeyDown("space");
 		if (schleem) {
 			m_Animator.SetTrigger ("ShleemAttempt");
-			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position + fix,transform.rotation);
-			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
+			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,Camera.main.transform.rotation);
+			projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
 
 		if (CDTime > 0)
 			CDTime -= Time.deltaTime;
 		if (CDTime <= 0) {
 			if (Input.GetMouseButton (1)) {
-				GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix, transform.rotation);
-				claw.GetComponent<Rigidbody> ().AddForce (transform.forward * bulletImpulse, ForceMode.Impulse);
+				GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix, Camera.main.transform.rotation);
+				claw.GetComponent<Rigidbody> ().AddForce (claw.transform.forward * bulletImpulse, ForceMode.Impulse);
 				CDTime = specialCD;
 				m_Animator.SetTrigger ("Claw");
 			}
@@ -110,42 +110,59 @@ public class BearScript : MonoBehaviour {
 		healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
 		AtkSlider.value = 1 - (attackTime / cooldown);
 		CDSlider.value = 1 - (CDTime / specialCD);
-	}
 
+		fix.z = 0.5f * Mathf.Cos (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
+		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
+	}
+		
 	void attack() {
 		RaycastHit hit;
+		bool collided = false;
 		m_Animator.SetTrigger ("Attack");
-		Vector3 fwd = transform.TransformDirection (Vector3.forward);
-		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
-			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
-			if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
-				if (hit.transform.tag.ToLower() == "bird") {
-					if(hit.transform.gameObject.GetComponent<BirdAi> () != null){
-						hit.transform.gameObject.GetComponent<BirdAi> ().alive = false;
-						if(hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null){
-							Destroy (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> ());
+
+		Vector3 dir = Camera.main.transform.TransformDirection (Vector3.forward);
+		Vector3 dir2 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (0, .1f, 0);
+		Vector3 dir3 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (-.1f, 0, 0);
+		Vector3 dir4 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (0, -.1f, 0);
+		Vector3 dir5 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (.1f, 0, 0);
+		Vector3[] dirs = { dir, dir2, dir3, dir4, dir5 };
+
+
+		for (int i = 0; i < dirs.Length; i++) {
+			//Debug.DrawRay (transform.position+fix, dirs[i] * meleeRange, Color.cyan, 3);
+			if (Physics.Raycast(transform.position+fix, dirs[i], out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle") && collided == false) {
+				collided = true;
+				hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
+				if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
+					if (hit.transform.tag.ToLower() == "bird") {
+						if(hit.transform.gameObject.GetComponent<BirdAi> () != null){
+							hit.transform.gameObject.GetComponent<BirdAi> ().alive = false;
+							if(hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null){
+								Destroy (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> ());
+							}
 						}
 					}
-				}
-				if (hit.transform.tag.ToLower() == "bear") {
-					if(hit.transform.gameObject.GetComponent<BearAi> () != null){
-						hit.transform.gameObject.GetComponent<BearAi> ().alive = false;
-						if (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> () != null) {
-							Destroy (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+					if (hit.transform.tag.ToLower() == "bear") {
+						if(hit.transform.gameObject.GetComponent<BearAi> () != null){
+							hit.transform.gameObject.GetComponent<BearAi> ().alive = false;
+							if (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> () != null) {
+								Destroy (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+							}
 						}
 					}
-				}
-				if (hit.transform.tag.ToLower() == "turtle") {
-					if(hit.transform.gameObject.GetComponent<TurtleAi> () != null){
-						hit.transform.gameObject.GetComponent<TurtleAi> ().alive = false;
-						if (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> () != null) {
-							Destroy (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
+					if (hit.transform.tag.ToLower() == "turtle") {
+						if(hit.transform.gameObject.GetComponent<TurtleAi> () != null){
+							hit.transform.gameObject.GetComponent<TurtleAi> ().alive = false;
+							if (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> () != null) {
+								Destroy (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
+							}
 						}
 					}
 				}
 			}
 		}
 	}
+
 
 	bool isGrounded() {
 		//change 3rd var depending on object size

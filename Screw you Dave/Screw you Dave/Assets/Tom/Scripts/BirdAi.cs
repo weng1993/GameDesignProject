@@ -14,6 +14,7 @@ public class BirdAi : MonoBehaviour {
 	private float meleeRange;
 	private float attackTime;
 	private float cooldown;
+	Vector3 fix = new Vector3 (0,1.25f,.5f);
 
 	public Slider healthSlider;
 	public Slider AtkSlider;
@@ -77,6 +78,9 @@ public class BirdAi : MonoBehaviour {
 		} else{
 			m_Animator.SetBool("Dead",true);
 		}
+
+		fix.z = 0.5f * Mathf.Cos (transform.eulerAngles.y * Mathf.Deg2Rad);
+		fix.x = .5f * Mathf.Sin (transform.eulerAngles.y * Mathf.Deg2Rad);
 	}
 		
 	bool isGrounded() {
@@ -141,14 +145,41 @@ public class BirdAi : MonoBehaviour {
 
 	void attack() {
 		RaycastHit hit;
-		Vector3 fwd = transform.TransformDirection (Vector3.forward);
-		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
-			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
-			if ((hit.transform.gameObject.GetComponent<Health2>().health <= 0) && (hit.transform.gameObject.tag == "Player")){
-				//SceneManager.LoadScene (2);
-				SceneManager.LoadScene (0);
+
+		Vector3 dir = (player.position - transform.position) / (player.position - transform.position).magnitude;
+		Vector3 dir2 = (player.position - (transform.position + new Vector3(0,.1f,0))) / (player.position - transform.position).magnitude;
+		Vector3 dir3 = (player.position - (transform.position + new Vector3(-.1f,0,0))) / (player.position - transform.position).magnitude;
+		Vector3 dir4 = (player.position - (transform.position + new Vector3(0,-.1f,0))) / (player.position - transform.position).magnitude;
+		Vector3 dir5 = (player.position - (transform.position + new Vector3(.1f,0,0))) / (player.position - transform.position).magnitude;
+		Vector3[] dirs = { dir, dir2, dir3, dir4, dir5 };
+
+		bool collided = false;
+		for (int i=0; i<dirs.Length; i++) {
+			if (Physics.Raycast (transform.position, dirs [i], out hit, meleeRange + .2f) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle") && (collided == false)) {
+				collided = true;
+				hit.transform.gameObject.GetComponent<Health2> ().adjustHealth (-meleeDamage);
+				if ((hit.transform.gameObject.GetComponent<Health2> ().health <= 0) && (hit.transform.gameObject.tag == "Player")) {
+					//SceneManager.LoadScene (2);
+					SceneManager.LoadScene (0);
+				}
 			}
-		}
+			i++;
+			}
+			
+			
+//		Debug.DrawRay (transform.position+fix, dir * (meleeRange+.2f), Color.cyan, 3);
+//		Debug.DrawRay (transform.position+fix, dir2 * (meleeRange+.2f), Color.cyan, 3);
+//		Debug.DrawRay (transform.position+fix, dir3 * (meleeRange+.2f), Color.cyan, 3);
+//		Debug.DrawRay (transform.position+fix, dir4 * (meleeRange+.2f), Color.cyan, 3);
+//		Debug.DrawRay (transform.position+fix, dir5 * (meleeRange+.2f), Color.cyan, 3);
+
+//		if (Physics.Raycast(transform.position, dir, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
+//			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
+//			if ((hit.transform.gameObject.GetComponent<Health2>().health <= 0) && (hit.transform.gameObject.tag == "Player")){
+//				//SceneManager.LoadScene (2);
+//				SceneManager.LoadScene (0);
+//			}
+//		}
 	}
 
 	void OnCollisionEnter(Collision col){

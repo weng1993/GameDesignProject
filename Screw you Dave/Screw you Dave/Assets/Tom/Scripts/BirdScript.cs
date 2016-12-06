@@ -9,7 +9,7 @@ public class BirdScript : MonoBehaviour {
 	public GameObject projectile_prefab;
 	public GameObject claw_prefab;
 	bool schleem = false;
-	Vector3 fix = new Vector3 (0,0.5f,0);
+	Vector3 fix = new Vector3 (0,1.25f,.5f);
 
 	public Collider coll;
 	public Rigidbody rb;
@@ -74,7 +74,6 @@ public class BirdScript : MonoBehaviour {
 		prevPos = transform.position;
 
 		Cursor.lockState = CursorLockMode.Locked;
-
 	}
 
 	void FixedUpdate(){
@@ -148,6 +147,9 @@ public class BirdScript : MonoBehaviour {
 		float yDif = transform.position.y - prevPos.y;
 		Camera.main.transform.Translate (0, yDif, 0);
 		prevPos = transform.position;
+
+		fix.z = 0.5f * Mathf.Cos (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
+		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
 	}
 
 	void Update () {
@@ -158,6 +160,8 @@ public class BirdScript : MonoBehaviour {
 			m_Animator.SetTrigger ("Schleem");
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
+			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,Camera.main.transform.rotation);
+			projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
 
 		//Makes sure bird stays on ground at switch
@@ -209,22 +213,44 @@ public class BirdScript : MonoBehaviour {
 						hit.transform.gameObject.GetComponent<BirdAi> ().alive = false;
 						if(hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null){
 							Destroy (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> ());
+		bool collided = false;
+
+		Vector3 dir = Camera.main.transform.TransformDirection (Vector3.forward);
+		Vector3 dir2 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (0, .1f, 0);
+		Vector3 dir3 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (-.1f, 0, 0);
+		Vector3 dir4 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (0, -.1f, 0);
+		Vector3 dir5 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (.1f, 0, 0);
+		Vector3[] dirs = { dir, dir2, dir3, dir4, dir5 };
+
+
+		for (int i = 0; i < dirs.Length; i++) {
+			//Debug.DrawRay (transform.position+fix, dirs[i] * meleeRange, Color.cyan, 3);
+			if (Physics.Raycast(transform.position+fix, dirs[i], out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle") && collided == false) {
+				collided = true;
+				hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
+				if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
+					if (hit.transform.tag.ToLower() == "bird") {
+						if(hit.transform.gameObject.GetComponent<BirdAi> () != null){
+							hit.transform.gameObject.GetComponent<BirdAi> ().alive = false;
+							if(hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null){
+								Destroy (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> ());
+							}
 						}
 					}
-				}
-				if (hit.transform.tag.ToLower() == "bear") {
-					if(hit.transform.gameObject.GetComponent<BearAi> () != null){
-						hit.transform.gameObject.GetComponent<BearAi> ().alive = false;
-						if (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> () != null) {
-							Destroy (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+					if (hit.transform.tag.ToLower() == "bear") {
+						if(hit.transform.gameObject.GetComponent<BearAi> () != null){
+							hit.transform.gameObject.GetComponent<BearAi> ().alive = false;
+							if (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> () != null) {
+								Destroy (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+							}
 						}
 					}
-				}
-				if (hit.transform.tag.ToLower() == "turtle") {
-					if(hit.transform.gameObject.GetComponent<TurtleAi> () != null){
-						hit.transform.gameObject.GetComponent<TurtleAi> ().alive = false;
-						if (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> () != null) {
-							Destroy (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
+					if (hit.transform.tag.ToLower() == "turtle") {
+						if(hit.transform.gameObject.GetComponent<TurtleAi> () != null){
+							hit.transform.gameObject.GetComponent<TurtleAi> ().alive = false;
+							if (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> () != null) {
+								Destroy (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
+							}
 						}
 					}
 				}

@@ -13,7 +13,7 @@ public class Health2 : MonoBehaviour {
 	void Start () {
 	//	maxHealth = 100;
 	//	health = maxHealth;
-		healthBar = transform.FindChild ("HealthCanvas").FindChild ("HealthBG").FindChild ("Health").GetComponent<Image> ();
+		healthBar = transform.FindChild("Body").FindChild ("HealthCanvas").FindChild ("HealthBG").FindChild ("Health").GetComponent<Image> ();
 		healthBar.fillAmount = ((float)health / (float)maxHealth);
 	}
 	

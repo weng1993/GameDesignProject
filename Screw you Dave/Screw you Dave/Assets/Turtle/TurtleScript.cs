@@ -19,9 +19,9 @@ public class TurtleScript : MonoBehaviour {
 	private float cooldown;
 
 	public bool underwater = false;
-	private float underwaterYOffset;
-	private float toAboveY;
-	private float abovewaterY;
+	public float underwaterYOffset;
+	public float toAboveY;
+	public float abovewaterY;
 	public float startingTime;
 	private float timeLeft;
 
@@ -54,7 +54,7 @@ public class TurtleScript : MonoBehaviour {
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		velocity = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical")).normalized * 10;
@@ -76,10 +76,11 @@ public class TurtleScript : MonoBehaviour {
 		/* timeLeft -= Time.deltaTime; */
 
 		//base movement
-		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 10.0f;
+		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 150.0f;
 		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
 
-		transform.Translate (x, 0, z);
+		transform.Rotate (0, x, 0);
+		transform.Translate (0, 0, z);
 
 
 		if(Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
@@ -95,19 +96,19 @@ public class TurtleScript : MonoBehaviour {
 			rb.useGravity = true;
 			// and pop turtle out of water (still need to write this code)
 		}else { */
-			// if swim time left use j to ascend and k to descend
-			// remove gravity when in water
+		// if swim time left use j to ascend and k to descend
+		// remove gravity when in water
 		if (Input.GetMouseButton (1)) {
-				rb.useGravity = false;
-				underwater = true;
-				Vector3 v = rb.velocity;
-				v.y = 0;
-				rb.velocity = v;
-				transform.Translate (0, 0.1f, 0);
-			} 
+			rb.useGravity = false;
+			underwater = true;
+			Vector3 v = rb.velocity;
+			v.y = 0;
+			rb.velocity = v;
+			transform.Translate (0, 0.1f, 0);
+		} 
 		else if (Input.GetMouseButtonUp (1)) {
-				rb.useGravity = true;
-			}
+			rb.useGravity = true;
+		}
 		//}
 
 		if (attackTime > 0)
@@ -148,14 +149,6 @@ public class TurtleScript : MonoBehaviour {
 						}
 					}
 				}
-				if (hit.transform.tag.ToLower() == "turtle") {
-					if(hit.transform.gameObject.GetComponent<TurtleAi> () != null){
-						hit.transform.gameObject.GetComponent<TurtleAi> ().alive = false;
-						if (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> () != null) {
-							Destroy (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
-						}
-					}
-				}
 			}
 		}
 	} 
@@ -163,14 +156,22 @@ public class TurtleScript : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag ("Water")) {
+<<<<<<< HEAD
 			if (underwater = false) {
 				m_Animator.SetBool ("Walk",false);
 				m_Animator.SetBool ("Swim",true);
 				underwater = true;
 				rb.useGravity = false;
+=======
+			Debug.Log ("collides with water");
+			if (!underwater) {
+				Debug.Log("goes underwater");
+>>>>>>> 090000f461798c363e50b7014bdc7fb31ab8d54b
 				transform.Translate (0, underwaterYOffset, 0);
+				underwater = true;
 			} else {
 				if (transform.position.y < toAboveY) {
+					Debug.Log ("goes above water");
 					if (transform.position.x < other.gameObject.transform.position.x) {
 						transform.Translate (-5f, (abovewaterY - transform.position.y), 0);
 					} else {
