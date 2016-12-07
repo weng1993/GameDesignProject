@@ -18,6 +18,10 @@ public class TurtleScript : MonoBehaviour {
 	private float attackTime;
 	private float cooldown;
 
+	/*public Slider healthSlider;
+	public Slider AtkSlider;
+	public Slider CDSlider;	*/
+
 	public bool underwater = false;
 	public float underwaterYOffset;
 	public float toAboveY;
@@ -25,19 +29,10 @@ public class TurtleScript : MonoBehaviour {
 	public float startingTime;
 	private float timeLeft;
 
-	public Slider healthSlider;
-	public Slider AtkSlider;
-	public Slider CDSlider;
-
-	int layermask = 1 << 8;
-
-	Animator m_Animator;
-
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		coll = GetComponent<BoxCollider>();
 		timeLeft = startingTime;
-		m_Animator = gameObject.GetComponent<Animator> ();
 
 		underwaterYOffset = 0f - (transform.localScale.y + 0.5f);
 		abovewaterY = 150.5f;
@@ -52,32 +47,19 @@ public class TurtleScript : MonoBehaviour {
 		attackTime = 0;
 		cooldown = .5f;
 
-		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
+		//UI
+		/*healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
-		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
+		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();*/
 	}
 
 	// Update is called once per frame
 	void Update () {
-		//base movement
-		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 10.0f;
-		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
-
-		if (isGrounded ())
-			transform.Translate (x, 0, z);
-
-		if(Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
-			m_Animator.SetBool ("Walk",true);
-		}
-		else{
-			m_Animator.SetBool ("Walk",false);
-		}
-
 		velocity = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical")).normalized * 10;
+
 		//Switch Bodies
 		schleem = Input.GetKeyDown("space");
 		if (schleem) {
-			m_Animator.SetTrigger ("Schleem");
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
@@ -90,7 +72,12 @@ public class TurtleScript : MonoBehaviour {
 		//update swim time
 		/* timeLeft -= Time.deltaTime; */
 
+		//base movement
+		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 150.0f;
+		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
 
+		transform.Rotate (0, x, 0);
+		transform.Translate (0, 0, z);
 
 		//out of swim time
 		/* if (timeLeft <= 0) {
@@ -123,17 +110,13 @@ public class TurtleScript : MonoBehaviour {
 		}
 
 		//UI
-		healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
+		/*healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
 		AtkSlider.value = 1 - (attackTime / cooldown);
-		CDSlider.value = (timeLeft / startingTime);
-
-		fix.z = 0.5f * Mathf.Cos (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
-		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
+		CDSlider.value = (timeLeft / startingTime);*/
 	}
 
 	void attack() {
 		RaycastHit hit;
-		m_Animator.SetTrigger ("Attack");
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
@@ -161,17 +144,14 @@ public class TurtleScript : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag ("Water")) {
-			if (underwater == false) {
-				m_Animator.SetBool ("Walk",false);
-				m_Animator.SetBool ("Swim",true);
-				underwater = true;
-				rb.useGravity = false;
-
+			Debug.Log ("collides with water");
 			if (!underwater) {
+				Debug.Log("goes underwater");
 				transform.Translate (0, underwaterYOffset, 0);
 				underwater = true;
 			} else {
 				if (transform.position.y < toAboveY) {
+					Debug.Log ("goes above water");
 					if (transform.position.x < other.gameObject.transform.position.x) {
 						transform.Translate (-5f, (abovewaterY - transform.position.y), 0);
 					} else {
@@ -179,17 +159,8 @@ public class TurtleScript : MonoBehaviour {
 					}
 					underwater = false;
 					rb.useGravity = true;
-					m_Animator.SetBool ("Walk",true);
-					m_Animator.SetBool ("Swim",false);
 				}
-			}
 			}
 		}
 	}
-
-	bool isGrounded() {
-		//change 3rd var depending on object size
-		return Physics.Raycast (transform.position, -Vector3.up, 0.6f, layermask);
-	}
-
 }
