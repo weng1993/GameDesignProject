@@ -59,6 +59,20 @@ public class TurtleScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//base movement
+		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 10.0f;
+		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
+
+		if (isGrounded ())
+			transform.Translate (x, 0, z);
+
+		if(Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
+			m_Animator.SetBool ("Walk",true);
+		}
+		else{
+			m_Animator.SetBool ("Walk",false);
+		}
+
 		velocity = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical")).normalized * 10;
 		//Switch Bodies
 		schleem = Input.GetKeyDown("space");
@@ -76,19 +90,7 @@ public class TurtleScript : MonoBehaviour {
 		//update swim time
 		/* timeLeft -= Time.deltaTime; */
 
-		//base movement
-		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 10.0f;
-		var z = Input.GetAxis ("Vertical") * Time.deltaTime * 10.0f;
 
-		transform.Translate (x, 0, z);
-
-	
-		if(Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
-			m_Animator.SetBool ("Walk",true);
-		}
-		else{
-			m_Animator.SetBool ("Walk",false);
-		}
 
 		//out of swim time
 		/* if (timeLeft <= 0) {
@@ -184,4 +186,10 @@ public class TurtleScript : MonoBehaviour {
 			}
 		}
 	}
+
+	bool isGrounded() {
+		//change 3rd var depending on object size
+		return Physics.Raycast (transform.position, -Vector3.up, 0.6f, layermask);
+	}
+
 }

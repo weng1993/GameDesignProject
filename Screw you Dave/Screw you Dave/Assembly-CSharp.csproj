@@ -3,8 +3,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{5CA014F6-65AD-B0E5-F264-5074AED4D645}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -33,74 +34,73 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Main Menu\Scripts by Tom\LoadSceneOnClick.cs" />
-    <Compile Include="Assets\Main Menu\Scripts by Tom\QuitOnClick.cs" />
-    <Compile Include="Assets\Main Menu\Scripts by Tom\SelectOnInput.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\ActiveStateToggler.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\ApplicationManager.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\ChangeColor.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\DragMe.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\DragPanel.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\DropMe.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\PanelManager.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\ResizePanel.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\ScrollDetailTexture.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\ShowSliderValue.cs" />
-    <Compile Include="Assets\Main Menu\Scripts\TiltWindow.cs" />
-    <Compile Include="Assets\Tom\Scripts\BearAi.cs" />
-    <Compile Include="Assets\Tom\Scripts\BearScript.cs" />
-    <Compile Include="Assets\Tom\Scripts\BirdAi.cs" />
-    <Compile Include="Assets\Tom\Scripts\BirdScript.cs" />
-    <Compile Include="Assets\Tom\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Tom\Scripts\CameraFacingBillboard.cs" />
-    <Compile Include="Assets\Tom\Scripts\End.cs" />
-    <Compile Include="Assets\Tom\Scripts\EnemyHome.cs" />
-    <Compile Include="Assets\Tom\Scripts\ExitFence.cs" />
-    <Compile Include="Assets\Tom\Scripts\Health.cs" />
-    <Compile Include="Assets\Tom\Scripts\Health2.cs" />
-    <Compile Include="Assets\Tom\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Tom\Scripts\Orbit.cs" />
-    <Compile Include="Assets\Tom\Scripts\Player.cs" />
-    <Compile Include="Assets\Tom\Scripts\TurtleAi.cs" />
-    <Compile Include="Assets\Tom\Scripts\projectileExplosion.cs" />
-    <Compile Include="Assets\Turtle\Animalnteraction.cs" />
-    <Compile Include="Assets\Turtle\TurtleScript.cs" />
-    <Compile Include="Assets\Turtle\WaterInteraction.cs" />
-    <Compile Include="Assets\Vincent\DestructionController.cs" />
-    <None Include="Assets\Main Menu\Fonts\Jupiter\LICENSE.txt" />
-    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
-    <None Include="Assets\Textures and Sprites\SF UI\Background\LICENSE.txt" />
-    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\Main Menu\Materials\UI-Default-No-Alpha.shader" />
-    <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
-    <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
-    <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
-    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
-    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <None Include="Assets\Standard Assets\Environment\Water %28Basic%29\Shaders\FXWaterBasic.shader" />
+     <Compile Include="Assets\Main Menu\Scripts by Tom\LoadSceneOnClick.cs" />
+     <Compile Include="Assets\Main Menu\Scripts by Tom\QuitOnClick.cs" />
+     <Compile Include="Assets\Main Menu\Scripts by Tom\SelectOnInput.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ActiveStateToggler.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ApplicationManager.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ChangeColor.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\DragMe.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\DragPanel.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\DropMe.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\PanelManager.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ResizePanel.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ScrollDetailTexture.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\ShowSliderValue.cs" />
+     <Compile Include="Assets\Main Menu\Scripts\TiltWindow.cs" />
+     <Compile Include="Assets\Tom\Scripts\BearAi.cs" />
+     <Compile Include="Assets\Tom\Scripts\BearScript.cs" />
+     <Compile Include="Assets\Tom\Scripts\BirdAi.cs" />
+     <Compile Include="Assets\Tom\Scripts\BirdScript.cs" />
+     <Compile Include="Assets\Tom\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Tom\Scripts\CameraFacingBillboard.cs" />
+     <Compile Include="Assets\Tom\Scripts\End.cs" />
+     <Compile Include="Assets\Tom\Scripts\EnemyHome.cs" />
+     <Compile Include="Assets\Tom\Scripts\ExitFence.cs" />
+     <Compile Include="Assets\Tom\Scripts\Health.cs" />
+     <Compile Include="Assets\Tom\Scripts\Health2.cs" />
+     <Compile Include="Assets\Tom\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Tom\Scripts\Orbit.cs" />
+     <Compile Include="Assets\Tom\Scripts\Player.cs" />
+     <Compile Include="Assets\Tom\Scripts\TurtMove.cs" />
+     <Compile Include="Assets\Tom\Scripts\TurtleAi.cs" />
+     <Compile Include="Assets\Tom\Scripts\projectileExplosion.cs" />
+     <Compile Include="Assets\Turtle\Animalnteraction.cs" />
+     <Compile Include="Assets\Turtle\TurtleScript.cs" />
+     <Compile Include="Assets\Turtle\WaterInteraction.cs" />
+     <Compile Include="Assets\Vincent\DestructionController.cs" />
+     <None Include="Assets\Main Menu\Fonts\Jupiter\LICENSE.txt" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+     <None Include="Assets\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Main Menu\Materials\UI-Default-No-Alpha.shader" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
+     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
+     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{38AE21A4-3F90-D3F2-6C19-F2FB6F891454}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
+      <Project>{38AE21A4-3F90-D3F2-6C19-F2FB6F891454}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -110,7 +110,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Assets\Turtle\" />
-  </ItemGroup>
+  
 </Project>

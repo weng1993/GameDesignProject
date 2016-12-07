@@ -71,3 +71,4 @@ C:\Users\Thomas\Desktop\Game Diesgn Game\GameDesignProject\Screw you Dave\Screw 
 C:\Users\Thomas\Desktop\Game Diesgn Game\GameDesignProject\Screw you Dave\Screw you Dave\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\Users\Thomas\Desktop\Game Diesgn Game\GameDesignProject\Screw you Dave\Screw you Dave\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\Thomas\Desktop\Game Diesgn Game\GameDesignProject\Screw you Dave\Screw you Dave\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\Thomas\Desktop\Game Diesgn Game\GameDesignProject\Screw you Dave\Screw you Dave\Temp\bin\Debug\Assembly-CSharp.pdb
