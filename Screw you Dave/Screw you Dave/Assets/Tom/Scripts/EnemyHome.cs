@@ -36,6 +36,7 @@ public class EnemyHome : MonoBehaviour {
 				break;
 
 			case "human":
+				enemy.GetComponent<HumanAi> ().playerSeen = true;
 				break;
 
 			case "dave":
@@ -59,6 +60,7 @@ public class EnemyHome : MonoBehaviour {
 				break;
 
 			case "human":
+				enemy.GetComponent<HumanAi> ().playerSeen = false;
 				break;
 
 			case "dave":

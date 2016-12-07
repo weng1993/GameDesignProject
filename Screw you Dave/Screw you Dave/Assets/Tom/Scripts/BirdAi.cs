@@ -42,6 +42,8 @@ public class BirdAi : MonoBehaviour {
 
 		for (int i = 0; i < 12; i++)
 			enemyPath [i] = home.transform.GetChild (i);
+		if (alive == false)
+			Destroy (transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
 
 		timeLeft = startingTime;
 		//bounciness 0 (likely included in player already)

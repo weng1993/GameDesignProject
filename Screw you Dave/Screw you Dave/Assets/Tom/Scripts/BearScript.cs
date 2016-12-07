@@ -130,7 +130,7 @@ public class BearScript : MonoBehaviour {
 
 		for (int i = 0; i < dirs.Length; i++) {
 			//Debug.DrawRay (transform.position+fix, dirs[i] * meleeRange, Color.cyan, 3);
-			if (Physics.Raycast(transform.position+fix, dirs[i], out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle") && collided == false) {
+			if (Physics.Raycast(transform.position+fix, dirs[i], out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle" || hit.transform.tag == "Human") && collided == false) {
 				collided = true;
 				hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
 				if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
@@ -155,6 +155,14 @@ public class BearScript : MonoBehaviour {
 							hit.transform.gameObject.GetComponent<TurtleAi> ().alive = false;
 							if (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> () != null) {
 								Destroy (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
+							}
+						}
+					}
+					if (hit.transform.tag.ToLower() == "human") {
+						if(hit.transform.gameObject.GetComponent<HumanAi> () != null){
+							hit.transform.gameObject.GetComponent<HumanAi> ().alive = false;
+							if(hit.transform.gameObject.GetComponent<HumanAi> ().home.GetComponent<EnemyHome> () != null){
+								Destroy (hit.transform.gameObject.GetComponent<HumanAi> ().home.GetComponent<EnemyHome> ());
 							}
 						}
 					}
