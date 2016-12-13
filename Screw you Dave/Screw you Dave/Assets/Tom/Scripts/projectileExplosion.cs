@@ -59,7 +59,7 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -86,7 +86,7 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -113,7 +113,7 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -149,7 +149,7 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -176,7 +176,7 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -203,7 +203,7 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -237,7 +237,7 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -264,7 +264,7 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -291,13 +291,101 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos;
+				cam.transform.localPosition = pos + col.transform.position;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
 			}
 			Explode ();
-		}	
+		}
+		if (col.gameObject.tag == "Human" && col.gameObject.GetComponent<Health2> ().health == 0) {
+			collision = true; //So object isn't destroyed during function
+			col.gameObject.GetComponent<Animator> ().SetBool ("Dead", false);
+			Player.gameObject.GetComponent<Animator> ().SetBool ("Dead", true);
+			//Check what type of animal the player is
+			if(Player.gameObject.GetComponent<BirdScript>() != null){
+				col.gameObject.AddComponent<DaveScript> ();
+				col.gameObject.GetComponent<DaveScript>().projectile_prefab = Player.gameObject.GetComponent<BirdScript>().projectile_prefab;
+				col.gameObject.GetComponent<DaveScript>().claw_prefab = Player.gameObject.GetComponent<BirdScript>().claw_prefab;
+				col.gameObject.GetComponent<DaveScript>().startingTime = Player.gameObject.GetComponent<BirdScript>().startingTime;
+				if (col.gameObject.GetComponent<HumanAi> () != null) {
+					Destroy (col.gameObject.GetComponent<HumanAi> ());
+				}
+				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().health = 0;
+				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
+				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
+				Destroy (Player.gameObject.GetComponent<BirdScript> ());
+
+				col.gameObject.tag = "Player";
+				Player.gameObject.tag = "Bird";
+
+				Vector3 forward = col.gameObject.transform.forward;
+				forward.y = 0;
+				Quaternion headingAngle = Quaternion.LookRotation (forward);
+				cam.transform.localRotation = headingAngle;
+				cam.transform.localPosition = pos + col.transform.position;
+				cam.GetComponent<Orbit>().Target = col.gameObject;
+				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
+			}
+			if(Player.gameObject.GetComponent<BearScript>() != null){
+				col.gameObject.AddComponent<DaveScript> ();
+				col.gameObject.GetComponent<DaveScript>().projectile_prefab = Player.gameObject.GetComponent<BearScript>().projectile_prefab;
+				col.gameObject.GetComponent<DaveScript>().claw_prefab = Player.gameObject.GetComponent<BearScript>().claw_prefab;
+				col.gameObject.GetComponent<DaveScript>().startingTime = Player.gameObject.GetComponent<BearScript>().startingTime;
+				if (col.gameObject.GetComponent<HumanAi> () != null) {
+					Destroy (col.gameObject.GetComponent<HumanAi> ());
+				}
+				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().health = 0;
+				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
+				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
+				Destroy (Player.gameObject.GetComponent<BearScript> ());
+
+				col.gameObject.tag = "Player";
+				Player.gameObject.tag = "Bear";
+
+				Vector3 forward = col.gameObject.transform.forward;
+				forward.y = 0;
+				Quaternion headingAngle = Quaternion.LookRotation (forward);
+				cam.transform.localRotation = headingAngle;
+				cam.transform.localPosition = pos + col.transform.position;
+				cam.GetComponent<Orbit>().Target = col.gameObject;
+				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
+			}
+			if(Player.gameObject.GetComponent<TurtleScript>() != null){
+				col.gameObject.AddComponent<DaveScript> ();
+				col.gameObject.GetComponent<DaveScript>().projectile_prefab = Player.gameObject.GetComponent<TurtleScript>().projectile_prefab;
+				col.gameObject.GetComponent<DaveScript>().claw_prefab = Player.gameObject.GetComponent<TurtleScript>().claw_prefab;
+				col.gameObject.GetComponent<DaveScript>().startingTime = Player.gameObject.GetComponent<TurtleScript>().startingTime;
+				if (col.gameObject.GetComponent<HumanAi> () != null) {
+					Destroy (col.gameObject.GetComponent<HumanAi> ());
+				}
+				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().health = 0;
+				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
+				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
+				Player.gameObject.GetComponent<Rigidbody> ().useGravity = true;
+				Destroy (Player.gameObject.GetComponent<TurtleScript> ());
+
+				col.gameObject.tag = "Player";
+				Player.gameObject.tag = "Turtle";
+
+				Vector3 forward = col.gameObject.transform.forward;
+				forward.y = 0;
+				Quaternion headingAngle = Quaternion.LookRotation (forward);
+				cam.transform.localRotation = headingAngle;
+				cam.transform.localPosition = pos + col.transform.position;
+				cam.GetComponent<Orbit>().Target = col.gameObject;
+				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
+				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
+			}
+			Explode ();
+		}
 	}
 
 /*

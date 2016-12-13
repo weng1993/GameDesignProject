@@ -2,20 +2,23 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Tom\Scripts\Win.cs">
     <Files>
-      <File FileName="Assets\Tom\Scripts\Health2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Tom\Scripts\Health2.cs" Line="16" Column="1" />
       <File FileName="Assets\Tom\Scripts\BirdScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Tom\Scripts\projectileExplosion.cs" Line="1" Column="1" />
-      <File FileName="Assets\Vincent\DestructionController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Tom\Scripts\BirdAi.cs" Line="1" Column="1" />
+      <File FileName="Assets\Tom\Scripts\projectileExplosion.cs" Line="366" Column="50" />
       <File FileName="Assets\Tom\Scripts\BearAi.cs" Line="1" Column="1" />
       <File FileName="Assets\Tom\Scripts\TurtleAi.cs" Line="1" Column="1" />
       <File FileName="Assets\Tom\Scripts\Orbit.cs" Line="1" Column="1" />
-      <File FileName="Assets\Tom\Scripts\Win.cs" Line="9" Column="15" />
-      <File FileName="Assets\Tom\Scripts\KeyUnlock.cs" Line="10" Column="3" />
+      <File FileName="Assets\Tom\Scripts\Win.cs" Line="10" Column="31" />
+      <File FileName="Assets\Tom\Scripts\KeyUnlock.cs" Line="10" Column="4" />
+      <File FileName="Assets\Tom\Scripts\HumanAi.cs" Line="104" Column="1" />
+      <File FileName="Assets\Tom\Scripts\DaveScript.cs" Line="92" Column="22" />
+      <File FileName="Assets\Tom\Scripts\BearScript.cs" Line="4" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Thomas\Desktop\Game Diesgn Game\NewerStuff\GameDesignProject\Screw you Dave\Screw you Dave\Assets\Tom\Scripts\BearScript.cs" line="5" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
