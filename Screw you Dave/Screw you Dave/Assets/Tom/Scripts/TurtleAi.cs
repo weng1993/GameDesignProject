@@ -37,10 +37,16 @@ public class TurtleAi : MonoBehaviour {
 	public GameObject home;
 
 	Animator m_Animator;
+	//private Transform mesh = transform.GetChild (0);
+	public Transform mesh;
 
 	void Start () {
+		mesh.Rotate (0, -90, 0);
+
 		for (int i = 0; i < 12; i++)
 			enemyPath [i] = home.transform.GetChild (i);
+		if (alive == false)
+			Destroy (transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
 		
 		timeLeft = startingTime;
 		//bounciness 0 (likely included in player already)
@@ -121,7 +127,7 @@ public class TurtleAi : MonoBehaviour {
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 		Vector2 pathDirection = enemyPath [pathNum].position - transform.position;
 		float speedElement = Vector2.Dot (pathDirection.normalized,transform.forward);
-		transform.Translate (0,0,Time.deltaTime*attackSpeed);
+		transform.Translate (0,0,Time.deltaTime*speed);
 	}
 
 	void attack() {

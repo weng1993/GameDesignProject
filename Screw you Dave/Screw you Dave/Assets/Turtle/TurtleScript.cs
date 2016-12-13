@@ -32,6 +32,8 @@ public class TurtleScript : MonoBehaviour {
 	int layermask = 1 << 8;
 
 	Animator m_Animator;
+	private Transform mesh;
+	Vector3 prevPos;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
@@ -39,9 +41,9 @@ public class TurtleScript : MonoBehaviour {
 		timeLeft = startingTime;
 		m_Animator = gameObject.GetComponent<Animator> ();
 
-		underwaterYOffset = 0f - (transform.localScale.y + 0.5f);
-		abovewaterY = 150.5f;
-		toAboveY = transform.position.y - 1f;
+//		underwaterYOffset = 0f - (transform.localScale.y + 0.5f);
+//		abovewaterY = 150.5f;
+//		toAboveY = transform.position.y - 1f;
 
 		// freeze rotation so turtle will swim straight
 		rb.freezeRotation = true;
@@ -69,9 +71,9 @@ public class TurtleScript : MonoBehaviour {
 		}
 
 		//Makes sure turtle stays on ground at switch
-		if(!underwater){
-			rb.useGravity = true;
-		}
+//		if(!underwater){
+//			rb.useGravity = true;
+//		}
 
 		//update swim time
 		/* timeLeft -= Time.deltaTime; */
@@ -99,14 +101,15 @@ public class TurtleScript : MonoBehaviour {
 		// if swim time left use j to ascend and k to descend
 		// remove gravity when in water
 		if (Input.GetMouseButton (1)) {
-			rb.useGravity = false;
-			underwater = true;
-			Vector3 v = rb.velocity;
-			v.y = 0;
-			rb.velocity = v;
-			transform.Translate (0, 0.1f, 0);
+			if (underwater) {
+				rb.useGravity = false;
+				Vector3 v = rb.velocity;
+				v.y = 0;
+				rb.velocity = v;
+				transform.Translate (0, 0.1f, 0);
+			}
 		} 
-		else if (Input.GetMouseButtonUp (1)) {
+		else if (!Input.GetMouseButton (1)) {
 			rb.useGravity = true;
 		}
 		//}
@@ -124,6 +127,10 @@ public class TurtleScript : MonoBehaviour {
 		healthSlider.value = (this.gameObject.GetComponent<Health2>().health / (float)this.gameObject.GetComponent<Health2>().maxHealth);
 		AtkSlider.value = 1 - (attackTime / cooldown);
 		CDSlider.value = (timeLeft / startingTime);
+
+		float yDif = transform.position.y - prevPos.y;
+		Camera.main.transform.Translate (0, yDif, 0);
+		prevPos = transform.position;
 
 		fix.z = 0.5f * Mathf.Cos (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
 		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
@@ -158,30 +165,18 @@ public class TurtleScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag ("Water")) {
-			if (underwater == false) {
-				m_Animator.SetBool ("Walk",false);
-				m_Animator.SetBool ("Swim",true);
-				underwater = true;
-				rb.useGravity = false;
-
-			if (!underwater) {
-				transform.Translate (0, underwaterYOffset, 0);
-				underwater = true;
-			} else {
-				if (transform.position.y < toAboveY) {
-					if (transform.position.x < other.gameObject.transform.position.x) {
-						transform.Translate (-5f, (abovewaterY - transform.position.y), 0);
-					} else {
-						transform.Translate (5f, (abovewaterY - transform.position.y), 0);
-					}
-					underwater = false;
-					rb.useGravity = true;
-					m_Animator.SetBool ("Walk",true);
-					m_Animator.SetBool ("Swim",false);
-				}
-			}
-			}
+		if (other.gameObject.CompareTag("Water")) {
+			underwater = true;
+//			m_Animator.SetBool ("Walk",false);
+//			m_Animator.SetBool ("Swim",true);
 		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.CompareTag ("Water"))
+			underwater = false;
+		//	m_Animator.SetBool ("Swim",false);
+		//	m_Animator.SetBool ("Walk",true);
 	}
 }

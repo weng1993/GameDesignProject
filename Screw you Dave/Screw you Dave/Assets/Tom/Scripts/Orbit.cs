@@ -46,6 +46,7 @@ public class Orbit : MonoBehaviour
 	Pitch,
 	xRot;
 	Quaternion CurrentRotation;
+	Quaternion turtleRotation;
 
 	void LateUpdate()
 	{
@@ -67,7 +68,12 @@ public class Orbit : MonoBehaviour
 		Yaw = -Input.GetAxis("Mouse X") * RotateSpeedPerTime;
 		Pitch = Input.GetAxis("Mouse Y") * RotateSpeedPerTime;
 		t.rotation = Quaternion.Euler (0, CurrentRotationAngle, 0);
-		mesh.rotation = transform.rotation;
+		if (Target.GetComponent<TurtleScript> () != null) {
+			turtleRotation = transform.rotation * Quaternion.Euler (0, -90, 0);
+			mesh.rotation = turtleRotation;
+		}
+		else
+			mesh.rotation = transform.rotation;
 //		t.Rotate (Vector3.left * 23.757f);
 		transform.Translate(new Vector3(Yaw, -Pitch, 0));
 //		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);

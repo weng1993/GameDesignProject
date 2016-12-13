@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Tom\Scripts\Orbit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Tom\Scripts\TurtleAi.cs">
     <Files>
       <File FileName="Assets\Tom\Scripts\Health2.cs" Line="1" Column="1" />
       <File FileName="Assets\Tom\Scripts\BirdScript.cs" Line="1" Column="1" />
@@ -12,6 +12,7 @@
       <File FileName="Assets\Tom\Scripts\BearAi.cs" Line="1" Column="1" />
       <File FileName="Assets\Tom\Scripts\TurtleAi.cs" Line="1" Column="1" />
       <File FileName="Assets\Tom\Scripts\Orbit.cs" Line="1" Column="1" />
+      <File FileName="Assets\Tom\Scripts\Bullet.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
