@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Tom/Scene/Mountain.unity
+- path: Assets/Tom/Scene/Main Menu.unity
   isLoaded: 1
   isActive: 1
