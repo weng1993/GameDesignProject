@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BearScript : MonoBehaviour {
 
@@ -113,6 +114,9 @@ public class BearScript : MonoBehaviour {
 
 		fix.z = 0.5f * Mathf.Cos (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
 		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
+
+		if (this.gameObject.GetComponent<Health2>().health <= 0)
+			SceneManager.LoadScene (0);
 	}
 		
 	void attack() {
@@ -175,5 +179,10 @@ public class BearScript : MonoBehaviour {
 	bool isGrounded() {
 		//change 3rd var depending on object size
 		return Physics.Raycast (transform.position, -Vector3.up, 0.6f, layermask);
+	}
+
+	void OnTriggerStay(Collider other) {
+		if (other.gameObject.CompareTag("Water"))
+			transform.gameObject.GetComponent<Health2> ().adjustHealth (-2);
 	}
 }

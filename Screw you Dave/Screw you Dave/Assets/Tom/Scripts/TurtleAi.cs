@@ -46,7 +46,7 @@ public class TurtleAi : MonoBehaviour {
 		for (int i = 0; i < 12; i++)
 			enemyPath [i] = home.transform.GetChild (i);
 		if (alive == false)
-			Destroy (transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+			Destroy (transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
 		
 		timeLeft = startingTime;
 		//bounciness 0 (likely included in player already)
@@ -137,10 +137,6 @@ public class TurtleAi : MonoBehaviour {
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
 			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
-			if ((hit.transform.gameObject.GetComponent<Health2>().health <= 0) && (hit.transform.gameObject.tag == "Player")){
-				//SceneManager.LoadScene (2);
-				SceneManager.LoadScene (0);
-			}
 		}
 
 

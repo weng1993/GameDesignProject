@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BirdScript : MonoBehaviour {
 	Rigidbody rigidbody;
@@ -91,11 +92,6 @@ public class BirdScript : MonoBehaviour {
 			m_Animator.SetBool ("Walk",false);
 		}
 
-		//update flight time
-//		if (!isGrounded ()) {
-//			timeLeft -= Time.deltaTime;
-//		}
-
 		//regain flight time when touching ground
 		//might not need this
 		if (isGrounded ()) {
@@ -108,19 +104,7 @@ public class BirdScript : MonoBehaviour {
 				transform.Translate (x, 0, z);
 			timeLeft -= Time.deltaTime;
 		}
-
-//		transform.Translate (x, 0, z);
-/*		if (!flight) {
-			if (isGrounded ()) {
-				transform.Translate (x, 0, z);
-				Debug.Log ("walking");
-			} else {
-				Debug.Log ("in air");
-			}
-		} else {
-			transform.Translate (x, 0, z);
-		}
-*/
+			
 		//out of flight time
 		if (timeLeft <= 0) {
 			//re-enable gravity to make object fall
@@ -150,6 +134,9 @@ public class BirdScript : MonoBehaviour {
 
 		fix.z = 0.5f * Mathf.Cos (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
 		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
+
+		if (this.gameObject.GetComponent<Health2>().health <= 0)
+			SceneManager.LoadScene (0);
 	}
 
 	void Update () {
@@ -273,6 +260,13 @@ public class BirdScript : MonoBehaviour {
 					holding = true;
 				}
 			}
+		}
+	}
+
+	void OnTriggerStay(Collider other) {
+		if (other.gameObject.CompareTag ("Water")) {
+			transform.gameObject.GetComponent<Health2> ().adjustHealth (-.1f);
+			timeLeft = 0;
 		}
 	}
 }

@@ -160,10 +160,6 @@ public class BirdAi : MonoBehaviour {
 			if (Physics.Raycast (transform.position, dirs [i], out hit, meleeRange + .2f) && (hit.transform.tag == "Player" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle") && (collided == false)) {
 				collided = true;
 				hit.transform.gameObject.GetComponent<Health2> ().adjustHealth (-meleeDamage);
-				if ((hit.transform.gameObject.GetComponent<Health2> ().health <= 0) && (hit.transform.gameObject.tag == "Player")) {
-					//SceneManager.LoadScene (2);
-					SceneManager.LoadScene (0);
-				}
 			}
 			i++;
 			}
