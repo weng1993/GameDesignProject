@@ -33,6 +33,8 @@ public class BirdScript : MonoBehaviour {
 	private Vector3 offset; 
 	private Vector3 placeOffset;
 
+	public AudioSource flapSound;
+	public AudioSource attackSound;
 	int layermask = 1 << 8;
 
 	public bool flight = false;
@@ -71,7 +73,9 @@ public class BirdScript : MonoBehaviour {
 		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
+		flapSound =GameObject.Find("bird_flap").GetComponent<AudioSource> ();
 
+		attackSound =GameObject.Find("bird_attack(plop)").GetComponent<AudioSource> ();
 		prevPos = transform.position;
 
 		Cursor.lockState = CursorLockMode.Locked;
@@ -122,10 +126,12 @@ public class BirdScript : MonoBehaviour {
 				v.y = 0;
 				rb.velocity = v;
 				transform.Translate (0, 0.1f, 0);
+				flapSound.Play ();
 			} 
 			else if (!Input.GetMouseButton (1)) {
 				//	transform.Translate (0, 0, 0);
 				rb.useGravity = true;
+			
 			}
 		}
 		float yDif = transform.position.y - prevPos.y;
@@ -159,6 +165,7 @@ public class BirdScript : MonoBehaviour {
 			if (Input.GetKeyDown ("e")) {
 				ch.parent = null;
 				holding = false;
+				attackSound.Play ();
 				m_Animator.SetTrigger ("PutDown");
 			} else {
 				ch.localPosition = offset;
@@ -170,6 +177,7 @@ public class BirdScript : MonoBehaviour {
 		if (attackTime <= 0) {
 			if (Input.GetMouseButton (0)) {
 				attack ();
+				attackSound.Play ();
 				attackTime = cooldown;
 			}
 		}
@@ -258,6 +266,7 @@ public class BirdScript : MonoBehaviour {
 			if (Input.GetKey ("e")) {
 				if(!holding){
 					m_Animator.SetTrigger ("PickUp");
+					attackSound.Play ();
 					ch = other.gameObject.transform;
 					ch.SetParent (pt);
 					ch.localPosition = offset;

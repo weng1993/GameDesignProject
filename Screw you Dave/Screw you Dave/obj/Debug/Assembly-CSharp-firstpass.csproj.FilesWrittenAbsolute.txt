@@ -1,0 +1,17 @@
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/obj/Debug/Assembly-CSharp-firstpass.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/obj/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/UnityEngine.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/UnityEditor.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Mono.Cecil.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Unity.DataContract.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/bin/Debug/Mono.Cecil.Mdb.dll
