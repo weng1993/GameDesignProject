@@ -53,6 +53,8 @@ public class TurtleScript : MonoBehaviour {
 		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
+
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	// Update is called once per frame
@@ -99,6 +101,11 @@ public class TurtleScript : MonoBehaviour {
 			if (Input.GetMouseButton (0)) {
 				attack ();
 				attackTime = cooldown;
+			}
+
+			if (Input.GetMouseButtonDown (0)) {
+				if (Cursor.lockState == CursorLockMode.None)
+					Cursor.lockState = CursorLockMode.Locked;
 			}
 		}
 

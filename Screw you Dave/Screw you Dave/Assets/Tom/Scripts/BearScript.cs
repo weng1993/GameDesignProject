@@ -59,6 +59,8 @@ public class BearScript : MonoBehaviour {
 		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
+
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 
@@ -117,6 +119,11 @@ public class BearScript : MonoBehaviour {
 
 		if (this.gameObject.GetComponent<Health2>().health <= 0)
 			SceneManager.LoadScene (0);
+
+		if (Input.GetMouseButtonDown (0)) {
+			if (Cursor.lockState == CursorLockMode.None)
+				Cursor.lockState = CursorLockMode.Locked;
+		}
 	}
 		
 	void attack() {
