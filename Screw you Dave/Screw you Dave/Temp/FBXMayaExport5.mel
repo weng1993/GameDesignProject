@@ -1,0 +1,23 @@
+print "Starting maya loading and fbx conversion \n";
+	
+if (`file -q -exists "/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Assets/Tom/Animations/Animation/CharacterAssets/animals.mb"`)
+{		
+	file -o "/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Assets/Tom/Animations/Animation/CharacterAssets/animals.mb";
+	FBXExportEmbeddedTextures -v false;
+	// FBXExportHardEdges -v true;
+	FBXExportApplyConstantKeyReducer -v false;
+	FBXExportShowUI -v false;
+
+	print "Before fbx export\n";
+	FBXExport -f "/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/ExportedFBXFile.fbx";
+	print "after fbx export\n";
+}
+else
+	print "Could not open Maya file.";
+
+
+system ("rm \"/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/CommandPipe\"");
+
+$donepipeKill = `fopen "/Users/vincent/Documents/Github/GameDesignProject/Screw you Dave/Screw you Dave/Temp/SyncPipeKill" "w"`;
+fwrite $donepipeKill "Done";
+fclose $donepipeKill;
