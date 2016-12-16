@@ -56,7 +56,7 @@ public class BearAi : MonoBehaviour {
 		rb.freezeRotation = true;
 
 		attackTime = 0;
-		cooldown = .5f;
+		cooldown = 1f;
 
 		specialCD = 1;
 		CDTime = 0;

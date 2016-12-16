@@ -247,9 +247,13 @@ public class BirdScript : MonoBehaviour {
 	}
 
 	//Bird Stuff
-	void OnTriggerEnter(Collider other) 
-	{
-		if (other.gameObject.CompareTag ( "Pickup"))
+
+	void OnTriggerStay(Collider other) {
+		if (other.gameObject.CompareTag ("Water")) {
+			transform.gameObject.GetComponent<Health2> ().adjustHealth (-.1f);
+			timeLeft = 0;
+		}
+		else if (other.gameObject.CompareTag ( "Pickup"))
 		{
 			if (Input.GetKey ("e")) {
 				if(!holding){
@@ -260,13 +264,6 @@ public class BirdScript : MonoBehaviour {
 					holding = true;
 				}
 			}
-		}
-	}
-
-	void OnTriggerStay(Collider other) {
-		if (other.gameObject.CompareTag ("Water")) {
-			transform.gameObject.GetComponent<Health2> ().adjustHealth (-.1f);
-			timeLeft = 0;
 		}
 	}
 }
