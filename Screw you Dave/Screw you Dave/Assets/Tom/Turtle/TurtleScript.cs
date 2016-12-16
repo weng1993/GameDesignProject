@@ -75,14 +75,14 @@ public class TurtleScript : MonoBehaviour {
 
 		transform.Translate (x, 0, z);
 
-	
+
 		if(Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
 			//m_Animator.SetBool ("Walk",true);
 		}
 		else{
 			//m_Animator.SetBool ("Walk",false);
 		}
-			
+
 		if (Input.GetMouseButton (1)) {
 			if (underwater) {
 				rb.useGravity = false;
@@ -187,8 +187,8 @@ public class TurtleScript : MonoBehaviour {
 		if (other.gameObject.CompareTag("Water")) {
 			underwater = true;
 			timeLeft = startingTime;
-//			m_Animator.SetBool ("Walk",false);
-//			m_Animator.SetBool ("Swim",true);
+			//			m_Animator.SetBool ("Walk",false);
+			//			m_Animator.SetBool ("Swim",true);
 		}
 	}
 
@@ -197,8 +197,8 @@ public class TurtleScript : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Water")) {
 			underwater = false;
 			timeLeft = 0;
-		//	m_Animator.SetBool ("Swim",false);
-		//	m_Animator.SetBool ("Walk",true);
+			//	m_Animator.SetBool ("Swim",false);
+			//	m_Animator.SetBool ("Walk",true);
 		}
 	}
 }
