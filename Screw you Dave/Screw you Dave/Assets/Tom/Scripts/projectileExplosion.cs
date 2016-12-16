@@ -46,7 +46,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<BirdAi> () != null) {
 					Destroy (col.gameObject.GetComponent<BirdAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				//col.gameObject.GetComponent<Health2>().health =  System.Math.Min(Player.gameObject.GetComponent<Health2>().health, col.gameObject.GetComponent<Health2>().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
@@ -74,7 +76,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<BirdAi> () != null) {
 					Destroy (col.gameObject.GetComponent<BirdAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -101,7 +105,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<BirdAi> () != null) {
 					Destroy (col.gameObject.GetComponent<BirdAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -134,7 +140,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<BearAi> () != null) {
 					Destroy (col.gameObject.GetComponent<BearAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -162,7 +170,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<BearAi> () != null) {
 					Destroy (col.gameObject.GetComponent<BearAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -189,7 +199,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<BearAi> () != null) {
 					Destroy (col.gameObject.GetComponent<BearAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -223,7 +235,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<TurtleAi> () != null) {
 					Destroy (col.gameObject.GetComponent<TurtleAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -250,7 +264,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<TurtleAi> () != null) {
 					Destroy (col.gameObject.GetComponent<TurtleAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -277,7 +293,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<TurtleAi> () != null) {
 					Destroy (col.gameObject.GetComponent<TurtleAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -311,7 +329,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<HumanAi> () != null) {
 					Destroy (col.gameObject.GetComponent<HumanAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -325,7 +345,8 @@ public class projectileExplosion : MonoBehaviour {
 				forward.y = 0;
 				Quaternion headingAngle = Quaternion.LookRotation (forward);
 				cam.transform.localRotation = headingAngle;
-				cam.transform.localPosition = pos + col.transform.position;
+				Vector3 viewFix = new Vector3 (0,0,100f);
+				cam.transform.localPosition = viewFix;
 				cam.GetComponent<Orbit>().Target = col.gameObject;
 				cam.GetComponent<Orbit> ().t = col.gameObject.transform;
 				cam.GetComponent<Orbit> ().mesh = col.gameObject.transform.FindChild ("Body").transform;
@@ -338,7 +359,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<HumanAi> () != null) {
 					Destroy (col.gameObject.GetComponent<HumanAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;
@@ -365,7 +388,9 @@ public class projectileExplosion : MonoBehaviour {
 				if (col.gameObject.GetComponent<HumanAi> () != null) {
 					Destroy (col.gameObject.GetComponent<HumanAi> ());
 				}
-				col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
+				col.gameObject.GetComponent<Health2>().maxHealth = Player.gameObject.GetComponent<Health2> ().maxHealth;
+				col.gameObject.GetComponent<Health2>().health = Player.gameObject.GetComponent<Health2> ().health;
+				//col.gameObject.GetComponent<Health2> ().health = (int)(((float)Player.gameObject.GetComponent<Health2> ().health / (float)Player.gameObject.GetComponent<Health2> ().maxHealth) * col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().health = 0;
 				col.gameObject.GetComponent<Health2> ().healthBar.fillAmount = ((float)col.gameObject.GetComponent<Health2> ().health / (float)col.gameObject.GetComponent<Health2> ().maxHealth);
 				Player.gameObject.GetComponent<Health2> ().healthBar.fillAmount = 0;

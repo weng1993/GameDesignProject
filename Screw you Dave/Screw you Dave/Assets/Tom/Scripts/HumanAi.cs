@@ -34,7 +34,7 @@ public class HumanAi : MonoBehaviour {
 		for (int i = 0; i < 12; i++)
 			enemyPath [i] = home.transform.GetChild (i);
 		if (alive == false)
-			Destroy (transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+			Destroy (transform.gameObject.GetComponent<HumanAi> ().home.GetComponent<EnemyHome> ());
 
 		m_Animator = GetComponent<Animator>();
 

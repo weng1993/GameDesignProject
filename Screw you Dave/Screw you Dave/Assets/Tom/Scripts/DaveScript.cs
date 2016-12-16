@@ -74,9 +74,9 @@ public class DaveScript : MonoBehaviour {
 			m_Animator.SetBool ("Walk",false);
 		}
 
-		if (isGrounded ())
+		//if (isGrounded ())
 			//			transform.position = (new Vector3 (transform.position.x + x, 0, transform.position.z + z));
-			transform.Translate (x, 0, z);
+		transform.Translate (x, 0, z);	
 
 		//Switch Bodies
 		schleem = Input.GetKeyDown("space");
@@ -95,7 +95,7 @@ public class DaveScript : MonoBehaviour {
 		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
 
 		if (this.gameObject.GetComponent<Health2>().health <= 0)
-			SceneManager.LoadScene (0);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	bool isGrounded() {
