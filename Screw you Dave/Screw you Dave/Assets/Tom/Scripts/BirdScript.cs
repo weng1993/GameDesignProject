@@ -62,8 +62,8 @@ public class BirdScript : MonoBehaviour {
 		offset = new Vector3 (0.0f,0.1f, -1.0f);
 
 		//combat
-		meleeDamage = 10;
-		meleeRange = 2;
+		meleeDamage = 20;
+		meleeRange = 3;
 		attackTime = 0;
 		cooldown = .5f;
 
@@ -104,7 +104,7 @@ public class BirdScript : MonoBehaviour {
 				transform.Translate (x, 0, z);
 			timeLeft -= Time.deltaTime;
 		}
-			
+
 		//out of flight time
 		if (timeLeft <= 0) {
 			//re-enable gravity to make object fall
@@ -136,7 +136,7 @@ public class BirdScript : MonoBehaviour {
 		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
 
 		if (this.gameObject.GetComponent<Health2>().health <= 0)
-			SceneManager.LoadScene (0);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	void Update () {
@@ -240,7 +240,7 @@ public class BirdScript : MonoBehaviour {
 			}
 		}
 	}
-		
+
 	bool isGrounded() {
 		//change 3rd var depending on object size
 		return Physics.Raycast (transform.position, -Vector3.up, 0.6f, layermask);

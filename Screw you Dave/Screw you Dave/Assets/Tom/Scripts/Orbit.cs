@@ -1,32 +1,4 @@
-﻿/*using UnityEngine;
-using System.Collections;
-
-public class Orbit : MonoBehaviour {
-
-	public float turnSpeed = 4.0f;
-	public Transform player;
-	private Vector3 offsetX;
-	private Vector3 offsetY;
-
-	// Use this for initialization
-	void Start () {
-		offsetX = new Vector3 (0, 1f, -4f);
-		offsetY = new Vector3 (0, 0, -4f);
-	}
-	
-	// Update is called once per frame
-	void LateUpdate () {
-		offsetX = Quaternion.AngleAxis (Input.GetAxis ("Mouse X") * turnSpeed, Vector3.up) * offsetX;
-		offsetY = Quaternion.AngleAxis (Input.GetAxis ("Mouse Y") * turnSpeed, Vector3.left) * offsetY;
-		transform.position = player.position + offsetX + offsetY;
-
-		player.transform.Rotate(0, Input.GetAxis("Mouse X") * turnSpeed, 0);
-		Vector3 pos = player.position + new Vector3 (0, 1, 0);
-		transform.LookAt (pos);
-	}
-}
-*/
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class Orbit : MonoBehaviour
@@ -74,9 +46,9 @@ public class Orbit : MonoBehaviour
 		}
 		else
 			mesh.rotation = transform.rotation;
-//		t.Rotate (Vector3.left * 23.757f);
+		//		t.Rotate (Vector3.left * 23.757f);
 		transform.Translate(new Vector3(Yaw, -Pitch, 0));
-//		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+		//		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
 		Vector3 pos = Target.transform.position + new Vector3 (0, 2, 0);
 		transform.LookAt (pos);
