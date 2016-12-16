@@ -4,8 +4,11 @@ using System.Collections;
 
 public class DestructionController : MonoBehaviour {
 	public GameObject remains;
+	private AudioSource rockExplode;
 	// Use this for initialization
-
+	void Start () {
+		rockExplode = GameObject.FindWithTag ("RockExplode").GetComponent<AudioSource> ();
+	}
 	void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag == "Claw") {
 			//Destroy Claw
@@ -16,6 +19,7 @@ public class DestructionController : MonoBehaviour {
 	}
 	void Explode(){
 		Instantiate (remains, transform.position, transform.rotation);
+		rockExplode.Play ();
 		Destroy (gameObject);
 //		Debug.Log ("start");
 //		StartCoroutine (Delay ());

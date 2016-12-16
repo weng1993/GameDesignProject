@@ -11,6 +11,7 @@ public class projectileExplosion : MonoBehaviour {
 	private Vector3 offset;
 	private Quaternion rotOffset;
 	private Vector3 pos;
+	private AudioSource sound;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class projectileExplosion : MonoBehaviour {
 		rotOffset = cam.transform.rotation;// - Player.transform.rotation;
 		//pos = new Vector3 (-0.1900001f, 3.922f, -5.51f);
 		pos = new Vector3 (-0.1900001f, 3f, -6.51f);
+		sound = GameObject.Find ("schleem(blorp)").GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -31,6 +33,7 @@ public class projectileExplosion : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col){
+		sound.Play();
 		if (col.gameObject.tag == "Bird" && col.gameObject.GetComponent<Health2>().health ==0) {
 			Player.gameObject.GetComponent<Animator> ().SetTrigger ("ShleemSuc");
 			col.gameObject.GetComponent<Animator> ().SetBool ("Dead", false);

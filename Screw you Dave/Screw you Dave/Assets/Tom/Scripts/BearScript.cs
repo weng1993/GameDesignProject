@@ -30,7 +30,8 @@ public class BearScript : MonoBehaviour {
 	public Slider healthSlider;
 	public Slider AtkSlider;
 	public Slider CDSlider;
-
+	public AudioSource attackSound;
+	public AudioSource roarSound;
 	int layermask = 1 << 8;
 
 	Animator m_Animator;
@@ -59,6 +60,9 @@ public class BearScript : MonoBehaviour {
 		healthSlider = GameObject.Find("healthSlider").GetComponent<Slider>();
 		AtkSlider = GameObject.Find ("AtkSlider").GetComponent<Slider>();
 		CDSlider = GameObject.Find ("CDSlider").GetComponent<Slider> ();
+		attackSound = GameObject.Find ("bear_attack").GetComponent<AudioSource> ();
+		roarSound = GameObject.Find ("bear_attack").GetComponent<AudioSource> ();
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 
@@ -93,6 +97,7 @@ public class BearScript : MonoBehaviour {
 				GameObject claw = (GameObject)Instantiate (claw_prefab, transform.position + fix, Camera.main.transform.rotation);
 				claw.GetComponent<Rigidbody> ().AddForce (claw.transform.forward * bulletImpulse, ForceMode.Impulse);
 				CDTime = specialCD;
+				roarSound.Play ();
 				m_Animator.SetTrigger ("Claw");
 			}
 		}
@@ -103,6 +108,7 @@ public class BearScript : MonoBehaviour {
 		if (attackTime <= 0) {
 			if (Input.GetMouseButton (0)) {
 				attack ();
+				attackSound.Play ();
 				attackTime = cooldown;
 			}
 		}
@@ -116,7 +122,12 @@ public class BearScript : MonoBehaviour {
 		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
 
 		if (this.gameObject.GetComponent<Health2>().health <= 0)
-			SceneManager.LoadScene (0);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+		if (Input.GetMouseButtonDown (0)) {
+			if (Cursor.lockState == CursorLockMode.None)
+				Cursor.lockState = CursorLockMode.Locked;
+		}
 	}
 		
 	void attack() {

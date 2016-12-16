@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Turtle/Turtle Level.unity
+=======
+- path: Assets/Tom/Scene/Tutorial1.2.unity
+>>>>>>> d2982264cff59e834c6a35a4bcb1ea92e3d90060
   isLoaded: 1
   isActive: 1

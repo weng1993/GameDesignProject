@@ -16,6 +16,6 @@ public class End : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Player")
-			SceneManager.LoadScene (0);
+			SceneManager.LoadScene (5);
 	}
 }
