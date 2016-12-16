@@ -33,7 +33,6 @@ public class BirdAi : MonoBehaviour {
 	Vector3 flight = new Vector3(0,.5f,0);
 	int flightCount = 0;
 	float flightTime = 0;
-
 	public GameObject home;
 
 	Animator m_Animator;
