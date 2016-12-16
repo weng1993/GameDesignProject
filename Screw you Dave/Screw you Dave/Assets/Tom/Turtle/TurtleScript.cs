@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TurtleScript : MonoBehaviour {
 	public Collider coll;
@@ -31,7 +32,7 @@ public class TurtleScript : MonoBehaviour {
 
 	int layermask = 1 << 8;
 
-	Animator m_Animator;
+	//Animator m_Animator;
 	private Transform mesh;
 	Vector3 prevPos;
 
@@ -39,14 +40,14 @@ public class TurtleScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		coll = GetComponent<BoxCollider>();
 		timeLeft = startingTime;
-		m_Animator = gameObject.GetComponent<Animator> ();
+		//m_Animator = gameObject.GetComponent<Animator> ();
 
 		// freeze rotation so turtle will swim straight
 		rb.freezeRotation = true;
 
 		//combat
-		meleeDamage = 10;
-		meleeRange = 2;
+		meleeDamage = 20;
+		meleeRange = 6;
 		attackTime = 0;
 		cooldown = .5f;
 
@@ -63,7 +64,7 @@ public class TurtleScript : MonoBehaviour {
 		//Switch Bodies
 		schleem = Input.GetKeyDown("space");
 		if (schleem) {
-			m_Animator.SetTrigger ("Schleem");
+			//m_Animator.SetTrigger ("Schleem");
 			GameObject projectile = (GameObject)Instantiate (projectile_prefab, transform.position+fix,transform.rotation);
 			projectile.GetComponent<Rigidbody>().AddForce(transform.forward*bulletImpulse, ForceMode.Impulse);
 		}
@@ -74,14 +75,14 @@ public class TurtleScript : MonoBehaviour {
 
 		transform.Translate (x, 0, z);
 
-
+	
 		if(Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
-			m_Animator.SetBool ("Walk",true);
+			//m_Animator.SetBool ("Walk",true);
 		}
 		else{
-			m_Animator.SetBool ("Walk",false);
+			//m_Animator.SetBool ("Walk",false);
 		}
-
+			
 		if (Input.GetMouseButton (1)) {
 			if (underwater) {
 				rb.useGravity = false;
@@ -120,42 +121,74 @@ public class TurtleScript : MonoBehaviour {
 
 		fix.z = 0.5f * Mathf.Cos (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
 		fix.x = .5f * Mathf.Sin (Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
+
+		if (this.gameObject.GetComponent<Health2>().health <= 0)
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	void attack() {
 		RaycastHit hit;
-		m_Animator.SetTrigger ("Attack");
-		Vector3 fwd = transform.TransformDirection (Vector3.forward);
-		if (Physics.Raycast(transform.position, fwd, out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle")) {
-			hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
-			if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
-				if (hit.transform.tag.ToLower() == "bird") {
-					if(hit.transform.gameObject.GetComponent<BirdAi> () != null){
-						hit.transform.gameObject.GetComponent<BirdAi> ().alive = false;
-						if(hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null){
-							Destroy (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> ());
+		bool collided = false;
+		//m_Animator.SetTrigger ("Attack");
+
+		Vector3 dir = Camera.main.transform.TransformDirection (Vector3.forward);
+		Vector3 dir2 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (0, .1f, 0);
+		Vector3 dir3 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (-.1f, 0, 0);
+		Vector3 dir4 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (0, -.1f, 0);
+		Vector3 dir5 =Camera.main.transform.TransformDirection (Vector3.forward) + new Vector3 (.1f, 0, 0);
+		Vector3[] dirs = { dir, dir2, dir3, dir4, dir5 };
+
+
+		for (int i = 0; i < dirs.Length; i++) {
+			//Debug.DrawRay (transform.position+fix, dirs[i] * meleeRange, Color.cyan, 3);
+			if (Physics.Raycast(transform.position+fix, dirs[i], out hit, meleeRange) && (hit.transform.tag == "AIPlayer" || hit.transform.tag == "Bird" || hit.transform.tag == "Bear" || hit.transform.tag == "Turtle" || hit.transform.tag == "Human") && collided == false) {
+				collided = true;
+				hit.transform.gameObject.GetComponent<Health2>().adjustHealth (-meleeDamage);
+				if (hit.transform.gameObject.GetComponent<Health2>().health <= 0){
+					if (hit.transform.tag.ToLower() == "bird") {
+						if(hit.transform.gameObject.GetComponent<BirdAi> () != null){
+							hit.transform.gameObject.GetComponent<BirdAi> ().alive = false;
+							if(hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> () != null){
+								Destroy (hit.transform.gameObject.GetComponent<BirdAi> ().home.GetComponent<EnemyHome> ());
+							}
 						}
 					}
-				}
-				if (hit.transform.tag.ToLower() == "bear") {
-					if(hit.transform.gameObject.GetComponent<BearAi> () != null){
-						hit.transform.gameObject.GetComponent<BearAi> ().alive = false;
-						if (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> () != null) {
-							Destroy (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+					if (hit.transform.tag.ToLower() == "bear") {
+						if(hit.transform.gameObject.GetComponent<BearAi> () != null){
+							hit.transform.gameObject.GetComponent<BearAi> ().alive = false;
+							if (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> () != null) {
+								Destroy (hit.transform.gameObject.GetComponent<BearAi> ().home.GetComponent<EnemyHome> ());
+							}
+						}
+					}
+					if (hit.transform.tag.ToLower() == "turtle") {
+						if(hit.transform.gameObject.GetComponent<TurtleAi> () != null){
+							hit.transform.gameObject.GetComponent<TurtleAi> ().alive = false;
+							if (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> () != null) {
+								Destroy (hit.transform.gameObject.GetComponent<TurtleAi> ().home.GetComponent<EnemyHome> ());
+							}
+						}
+					}
+					if (hit.transform.tag.ToLower() == "human") {
+						if(hit.transform.gameObject.GetComponent<HumanAi> () != null){
+							hit.transform.gameObject.GetComponent<HumanAi> ().alive = false;
+							if(hit.transform.gameObject.GetComponent<HumanAi> ().home.GetComponent<EnemyHome> () != null){
+								Destroy (hit.transform.gameObject.GetComponent<HumanAi> ().home.GetComponent<EnemyHome> ());
+							}
 						}
 					}
 				}
 			}
 		}
-	} 
+	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag("Water")) {
 			underwater = true;
 			timeLeft = startingTime;
-			//			m_Animator.SetBool ("Walk",false);
-			//			m_Animator.SetBool ("Swim",true);
+//			m_Animator.SetBool ("Walk",false);
+//			m_Animator.SetBool ("Swim",true);
 		}
 	}
 
@@ -164,8 +197,8 @@ public class TurtleScript : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Water")) {
 			underwater = false;
 			timeLeft = 0;
-			//	m_Animator.SetBool ("Swim",false);
-			//	m_Animator.SetBool ("Walk",true);
+		//	m_Animator.SetBool ("Swim",false);
+		//	m_Animator.SetBool ("Walk",true);
 		}
 	}
 }
